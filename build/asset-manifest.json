@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/Sports/static/css/main.97db606b.css",
-    "main.js": "/Sports/static/js/main.254e0805.js",
-    "static/js/787.9452f946.chunk.js": "/Sports/static/js/787.9452f946.chunk.js",
-    "static/media/Lebron.png": "/Sports/static/media/Lebron.342cd62ff9f10da37584.png",
-    "static/media/tenor.gif": "/Sports/static/media/tenor.d072452e8b806c5521e1.gif",
-    "static/media/Roy.png": "/Sports/static/media/Roy.3c80b80501417d55cc20.png",
-    "static/media/Federer.png": "/Sports/static/media/Federer.32c202f0e2b64b5ebd0f.png",
-    "static/media/Rashford.png": "/Sports/static/media/Rashford.f14c738a5aa9d9368467.png",
-    "static/media/clay-court.jpeg": "/Sports/static/media/clay-court.3f882b9b8c290496d273.jpeg",
-    "static/media/grass-court.jpeg": "/Sports/static/media/grass-court.14238fcc1cc04645612f.jpeg",
-    "static/media/uk-flag.png": "/Sports/static/media/uk-flag.4690bc2750a9db16265e.png",
-    "static/media/spain-flag.png": "/Sports/static/media/spain-flag.f1fe0332916447ce9e87.png",
-    "static/media/italy-flag.png": "/Sports/static/media/italy-flag.438ad2b0dee1f8a8805a.png",
-    "static/media/france-flag.png": "/Sports/static/media/france-flag.bc0a2884c39ef5be69b5.png",
-    "static/media/israel-flag.png": "/Sports/static/media/israel-flag.5d50e812e879f06222c6.png",
-    "static/media/germany-flag.png": "/Sports/static/media/germany-flag.272f694271b28155045f.png",
-    "static/media/No_Image_Available.jpeg": "/Sports/static/media/No_Image_Available.e1ce751ef1b590f719f9.jpeg",
-    "index.html": "/Sports/index.html",
-    "main.97db606b.css.map": "/Sports/static/css/main.97db606b.css.map",
-    "main.254e0805.js.map": "/Sports/static/js/main.254e0805.js.map",
-    "787.9452f946.chunk.js.map": "/Sports/static/js/787.9452f946.chunk.js.map"
+    "main.css": "/sports/static/css/main.0ae58349.css",
+    "main.js": "/sports/static/js/main.64ede3d1.js",
+    "static/js/787.9452f946.chunk.js": "/sports/static/js/787.9452f946.chunk.js",
+    "static/media/Lebron.png": "/sports/static/media/Lebron.342cd62ff9f10da37584.png",
+    "static/media/tenor.gif": "/sports/static/media/tenor.d072452e8b806c5521e1.gif",
+    "static/media/Roy.png": "/sports/static/media/Roy.3c80b80501417d55cc20.png",
+    "static/media/Federer.png": "/sports/static/media/Federer.32c202f0e2b64b5ebd0f.png",
+    "static/media/Rashford.png": "/sports/static/media/Rashford.f14c738a5aa9d9368467.png",
+    "static/media/clay-court.jpeg": "/sports/static/media/clay-court.3f882b9b8c290496d273.jpeg",
+    "static/media/grass-court.jpeg": "/sports/static/media/grass-court.14238fcc1cc04645612f.jpeg",
+    "static/media/uk-flag.png": "/sports/static/media/uk-flag.4690bc2750a9db16265e.png",
+    "static/media/spain-flag.png": "/sports/static/media/spain-flag.f1fe0332916447ce9e87.png",
+    "static/media/italy-flag.png": "/sports/static/media/italy-flag.438ad2b0dee1f8a8805a.png",
+    "static/media/france-flag.png": "/sports/static/media/france-flag.bc0a2884c39ef5be69b5.png",
+    "static/media/israel-flag.png": "/sports/static/media/israel-flag.5d50e812e879f06222c6.png",
+    "static/media/germany-flag.png": "/sports/static/media/germany-flag.272f694271b28155045f.png",
+    "static/media/No_Image_Available.jpeg": "/sports/static/media/No_Image_Available.e1ce751ef1b590f719f9.jpeg",
+    "index.html": "/sports/index.html",
+    "main.0ae58349.css.map": "/sports/static/css/main.0ae58349.css.map",
+    "main.64ede3d1.js.map": "/sports/static/js/main.64ede3d1.js.map",
+    "787.9452f946.chunk.js.map": "/sports/static/js/787.9452f946.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97db606b.css",
-    "static/js/main.254e0805.js"
+    "static/css/main.0ae58349.css",
+    "static/js/main.64ede3d1.js"
   ]
 }
