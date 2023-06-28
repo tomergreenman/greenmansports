@@ -1,0 +1,68 @@
+.LeaguesTables .SeasonPicker {
+    text-align: center;
+    padding: 20px;
+}
+
+.LeaguesTables select {
+    margin: 5px;
+}
+
+.LeaguesTables {
+    /* margin-top: 100px; */
+    box-sizing: border-box;
+}
+
+
+
+
+.LeaguesTable,
+table {
+    margin: auto;
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    /* width: 600px; */
+    font-size: large;
+}
+
+.LeaguesTable tr,
+.LeaguesTable td,
+.LeaguesTable th {
+    /* border: 1px solid;
+    border-collapse: collapse; */
+    max-height: 50px;
+    padding: 5px;
+    min-width: 30px;
+}
+
+.LeaguesTable th {
+    /* text-align: start; */
+    background-color: aliceblue;
+}
+
+
+.LeaguesTable img {
+    width: 30px;
+
+}
+
+.LeaguesTable .Club {
+    /* padding-left: 20px; */
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    padding-right: 50px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.LeaguesTable tr:hover {
+    background-color: lightgoldenrodyellow;
+}
+
+.LeaguesTable .Rank {
+    border: 1px solid;
+}

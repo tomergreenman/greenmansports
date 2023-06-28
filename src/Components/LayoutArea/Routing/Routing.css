@@ -1,0 +1,14 @@
+.Routing {
+    /* min-height: 100vh; */
+    /* margin-top: 74.5px; */
+    /* height: calc(100vh - 74.5px); */
+    min-height: calc(100vh - 124.5px);
+    /* max-width: 90%; */
+    /* margin-top: -74px; */
+    /* min-height: 100vh-74.5px; */
+    /* overflow: auto; */
+    width: 100%;
+    margin: 0;
+
+
+}

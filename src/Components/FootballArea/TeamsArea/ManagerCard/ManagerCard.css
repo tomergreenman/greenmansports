@@ -1,0 +1,29 @@
+
+.ManagerCard  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 200px;
+    background-color: rgb(240, 245, 255);
+    text-align: center;
+    padding-bottom: 5px;
+	
+}
+
+
+
+.ManagerCard img{
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ManagerCard h4{
+    margin: 3px;
+}
+.ManagerCard span{
+    margin-bottom: 5px;
+}
+

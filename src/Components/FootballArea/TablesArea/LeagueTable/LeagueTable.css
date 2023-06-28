@@ -1,0 +1,10 @@
+.LeagueTable .SeasonPicker {
+	text-align: center;
+    margin: 20px;
+}
+
+.LeagueTable select{
+    margin: 5px;
+}
+
+

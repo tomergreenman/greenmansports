@@ -1,0 +1,156 @@
+.Menu {
+    /* position: absolute;
+    top: 0; */
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+   
+}
+
+.Menu a {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 3px;
+}
+
+
+
+/* .Menu .active {
+    font-size: larger;
+    text-decoration:underline;
+    font-weight: bold;
+
+} */
+
+.Icons {
+    position: relative;
+    top: 2px;
+}
+
+.Menu img {
+    width: 15px;
+}
+
+
+
+
+.FootballLi {
+    width: max-content;
+
+}
+
+
+
+
+nav {
+    background: #122331;
+    /* position: relative;; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 1rem 2rem; */
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+ul {
+    list-style: none;
+
+}
+
+.MainLi {
+    width: max-content;
+    /* text-align: center; */
+}
+
+
+
+
+/* .FootballLi{
+    width: 53px;
+} */
+
+
+
+.menu-items {
+    display: flex;
+    align-items: center;
+}
+
+.menu-items li {
+    padding: 0.5rem 1rem;
+    /* Good to know */
+    transition: background 0.5s ease-in-out;
+}
+
+.menu-items li:hover {
+    background-color: #ff652f;
+}
+
+
+
+
+
+/* dropdown */
+.FootballLi,
+.TennisLi {
+    position: relative;
+}
+
+.FootballDropdownMenu,
+.TennisDropDown {
+    position: absolute;
+    background: #122331;
+    width: max-content;
+    /* top: 0px; */
+    left: 0px;
+    opacity: 0;
+    visibility: hidden;
+    /* top: 34.5px; */
+    /* Good to know */
+    transition: ease-in-out 0.5s;
+    z-index: 10;
+
+}
+
+.FootballDropdownMenu li,
+.TennisDropDown li {
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.SubDropDownMenu {
+    position: absolute;
+    /* top: 34px; */
+    /* left: 93px; */
+
+    background-color: rgb(113, 113, 113);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+
+}
+
+.SubDropDownMenu li {
+    min-width: max-content;
+    max-width: 100;
+}
+
+.CountryLi {
+    position: relative;
+}

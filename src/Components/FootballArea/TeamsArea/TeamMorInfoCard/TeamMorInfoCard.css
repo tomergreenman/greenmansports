@@ -1,0 +1,34 @@
+.TeamMorInfoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 200px;
+    background-color: rgb(255, 249, 240);
+    text-align: center;
+    padding-bottom: 5px;
+	
+}
+
+
+
+.TeamMorInfoCard img{
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.TeamMorInfoCard h4{
+    margin: 3px;
+}
+.TeamMorInfoCard span{
+    margin-bottom: 5px;
+}
+
+.TeamMorInfoCard .WhiteDiv{
+    height: 5px;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}

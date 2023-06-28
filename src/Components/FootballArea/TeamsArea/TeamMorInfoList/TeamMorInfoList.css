@@ -1,0 +1,41 @@
+.TeamMorInfoList .Players {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* background-color: whitesmoke; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+
+
+}
+
+.TeamMorInfoList .ManagerAndLogo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* margin: 20px; */
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    gap: 100px;
+    /* background-color: whitesmoke */
+
+
+}
+
+.TeamMorInfoList .Manager{
+ 
+   /* margin-left: 300%; */
+    
+}
+
+
+.TeamMorInfoList .Logo img{
+
+    width: 220px;
+
+}
+
