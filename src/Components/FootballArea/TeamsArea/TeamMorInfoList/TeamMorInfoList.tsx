@@ -7,12 +7,13 @@ import leaguesService from "../../../../Services/LeaguesService";
 import ManagerCard from "../ManagerCard/ManagerCard";
 import TeamMorInfoCard from "../TeamMorInfoCard/TeamMorInfoCard";
 import "./TeamMorInfoList.css";
+import ManagerModel from "../../../../Models/ManagerModel";
 
 function TeamMorInfoList(): JSX.Element {
 
 
     const [players, setPlayers] = useState<PlayerModel[]>();
-    const [manager, setManager] = useState<PersonModel>();
+    const [manager, setManager] = useState<ManagerModel>();
     const [team, setTeam] = useState<TeamModel>()
 
     const params = useParams();
@@ -30,6 +31,7 @@ function TeamMorInfoList(): JSX.Element {
 
 
                 const manager = await leaguesService.getManagerById(team.manager_id);
+               
                 setManager(manager);
 
             }

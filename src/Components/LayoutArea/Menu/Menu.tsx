@@ -53,7 +53,8 @@ function Menu(): JSX.Element {
         top: '34.5px'
     }
 
-    const sportsLi = useRef<any>();
+    const footballLi = useRef<any>();
+    const tennisLi = useRef<any>();
 
     const footballUl = useRef<any>();
     const tennisUl = useRef<any>();
@@ -66,8 +67,7 @@ function Menu(): JSX.Element {
     function closeDropdownMenu() {
 
         setDropdownStyle(closedMenuStyle)
-        sportsLi.current.style.backgroundColor = '#122331'
-
+        footballLi.current.style.backgroundColor = '#122331'
 
 
     }
@@ -75,25 +75,34 @@ function Menu(): JSX.Element {
     function openDropdownMenu() {
 
         setDropdownStyle(openMenuStyle)
-        sportsLi.current.style.backgroundColor = '#ff652f'
+        footballLi.current.style.backgroundColor = '#ff652f'
     }
 
-    function closeDropdownMenu2(ref: any) {
+    function closeDropdownMenu2(ulRef: any, liRef: any) {
         // const ref = ulMap.get(ul)
-        ref.current.style.visibility = 'hidden';
-        ref.current.style.opacity = 0;
-        ref.current.style.top = '54px'
+        ulRef.current.style.visibility = 'hidden';
+        ulRef.current.style.opacity = '0';
+        ulRef.current.style.top = '54px'
+        liRef.current.style.backgroundColor = '#122331'
+        // liRef.current.style.fontSize = '500px'
+
+        console.log("closed");
         
-        
-        
+
+
+
+
     }
-    
-    function openDropdownMenu2(ref: any) {
-        
+
+    function openDropdownMenu2(ulRef: any, liRef: any) {
+
         // const ref = ulMap.get(ul)
-        ref.current.style.visibility = 'visible';
-        ref.current.style.opacity = 1;
-        ref.current.style.top = '34px'
+        ulRef.current.style.visibility = 'visible';
+        ulRef.current.style.opacity = '1';
+        ulRef.current.style.top = '34px'
+        liRef.current.style.backgroundColor = '#ff652f'
+        console.log("df");
+        
     }
 
     const closedSubMenuStyle = {
@@ -108,7 +117,8 @@ function Menu(): JSX.Element {
         visibility: 'visible',
         opacity: '1',
         top: '0px',
-        left: '116.5px'
+        // left: '116.5px',
+
     }
 
 
@@ -233,12 +243,12 @@ function Menu(): JSX.Element {
                 </li>
 
                 {/* Football */}
-                <li className="FootballLi" ref={sportsLi}
-                    onMouseEnter={() => openDropdownMenu2(footballUl)}
-                    onMouseLeave={() => closeDropdownMenu2(footballUl)}
+                <li className="FootballLi" ref={footballLi}
+                    onMouseEnter={() => openDropdownMenu2(footballUl, footballLi)}
+                    onMouseLeave={() => closeDropdownMenu2(footballUl, footballLi)}
                 >
                     <a href="#" className="menu-item"
-                        onClick={openDropdownMenu}
+                    // onClick={openDropdownMenu}
                     >Football</a>
 
                     <ul className="FootballDropdownMenu" ref={footballUl} >
@@ -255,7 +265,8 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.EnglishPremierLeague}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            // closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("England")
                                         }}>
                                         Premier League</NavLink>
@@ -263,7 +274,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.EnglandChampionShip}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("England")
                                         }}>
                                         Championship</NavLink>
@@ -271,7 +282,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.WomensSuperLeague}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("England")
                                         }}>
                                         Women's Super League</NavLink>
@@ -291,7 +302,9 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.LaLiga}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            // closeDropdownMenu()
+
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Spain")
                                         }}
                                     > LaLiga</NavLink>
@@ -299,7 +312,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.PrimeraDivisionFemenina}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Spain")
                                         }}
                                     >Primera Division Femenina</NavLink>
@@ -317,7 +330,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.SerieA}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Italy")
                                         }}
                                     > Serie A</NavLink>
@@ -325,7 +338,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/home"}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Italy")
                                         }}
                                     >Italy2</NavLink>
@@ -343,7 +356,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.LeagueOne}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("France")
                                         }}
                                     > League One</NavLink>
@@ -351,7 +364,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/home"}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("France")
                                         }}
                                     >France2</NavLink>
@@ -369,7 +382,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.Bundesliga}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Germany")
                                         }}
                                     > Bundesliga</NavLink>
@@ -377,7 +390,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/home"}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Germany")
                                         }}
                                     >Germany2</NavLink>
@@ -395,7 +408,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/leagues/" + LeaguesIdCodes.IsraelPremierLeague}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Israel")
                                         }}
                                     > Israel Premier League</NavLink>
@@ -403,7 +416,7 @@ function Menu(): JSX.Element {
                                 <li>
                                     <NavLink to={"/home"}
                                         onClick={() => {
-                                            closeDropdownMenu()
+                                            closeDropdownMenu2(footballUl, footballLi)
                                             closeSubDropdownMenu("Israel")
                                         }}
                                     >Israel2</NavLink>
@@ -416,16 +429,20 @@ function Menu(): JSX.Element {
                     </ul>
                 </li>
 
-                <li className="MainLi TennisLi"
-                    onMouseEnter={() => openDropdownMenu2(tennisUl)}
-                    onMouseLeave={() => closeDropdownMenu2(tennisUl)}>
-                    <NavLink to={""} >Tennis</NavLink>
+
+                {/* Tennis */}
+                <li className="MainLi TennisLi" ref={tennisLi}
+                    onMouseEnter={() => openDropdownMenu2(tennisUl, tennisLi)}
+                    onMouseLeave={() => closeDropdownMenu2(tennisUl, tennisLi)}>
+                    <NavLink to={"#"} >Tennis</NavLink>
                     <ul className="TennisDropDown" ref={tennisUl}>
                         <li>
-                            <NavLink className="menu-item" to={"/tennis-rankings"}>Player Rankings</NavLink>
+                            <NavLink className="menu-item" to={"/tennis-rankings"}
+                                onClick={() =>closeDropdownMenu2(tennisUl, tennisLi)}>Player Rankings</NavLink>
                         </li>
                         <li>
-                            <NavLink className="menu-item" to={"/tennis-liveScores"}>Live Scores</NavLink>
+                            <NavLink className="menu-item" to={"/tennis-liveScores"}
+                                onClick={() => closeDropdownMenu2(tennisUl, tennisLi)}>Live Scores</NavLink>
                         </li>
                     </ul>
                 </li>

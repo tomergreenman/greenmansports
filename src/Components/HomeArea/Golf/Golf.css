@@ -1,0 +1,25 @@
+.Golf {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 500px;
+
+	
+}
+
+.Golf img{
+    width: 300px;
+}
+
+
+@media screen and (max-width:600px) {
+
+    .Golf {
+        flex-direction: column;
+    }
+
+    .Golf img{
+        width: 220px;
+    }
+    
+}

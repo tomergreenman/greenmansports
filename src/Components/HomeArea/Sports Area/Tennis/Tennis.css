@@ -1,7 +1,6 @@
 .Tennis {
-
     width: 100%;
-    height: 100vh;
+    height: 600px;
     /* background-color: rgb(162, 50, 50); */
     background-image: url("https://www.telegraph.co.uk/content/dam/betting/Better-Collective/blue-tennis-court.jpg?imwidth=680");
     background-repeat: no-repeat;
@@ -9,51 +8,54 @@
     background-attachment: fixed;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-
-
-}
-
-.Tennis .WrapperDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 100px;
+    grid-template-columns: 55% 45%;
 
 }
 
-.Tennis h1 {
+.Tennis .FedererWrapper {
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+
+}
+
+.FedererWrapper h1 {
     text-align: center;
     width: 100%;
-    
+    font-size: 5rem;
+    color: rgb(218, 208, 208);
+
+
+
 }
 
-.Tennis p {
-padding-top: 50px;
+.Tennis .TennisCards {
+    width: 60%;
+    flex-wrap: wrap;
 }
 
-.Tennis .TennisInfo {
-    border: 2px solid rgb(0, 0, 0);
+.Tennis .TennisCard {
+
+    border: 2px solid rgb(211, 176, 4);
     border-radius: 15px;
-    background-color: rgb(254, 255, 229);
-    min-height: 300px;
-    max-height: max-content;
+    background-color: rgba(0, 14, 63, 0.851);
+    color: aliceblue;
+    width: 160px;
+    height: 160px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    gap: 10px;
     box-sizing: border-box;
-    transform: translateX(100%);
+    transform: translateX(-100%);
 }
 
-.Tennis .federer {
-    
-    /* transform: translateY(-100%); */
-    transform: translateX(-200%);
-    
-
-
+.Tennis .CardImage {
+    width: 80px;
+    height: 80px;
 }
 
 
@@ -62,13 +64,129 @@ padding-top: 50px;
     filter: blur(5px);
     /* transform: translateX(-100%); */
     transition: all 2s;
-    
+
 }
 
 .Tennis .Show {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
-    transform: translateY(0);
+
+}
+
+
+.Tennis .TennisInfoWrapperDiv,
+.Tennis .FedererWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.142);
+
+}
+
+
+.Tennis .FedererWrapper {
+    flex-direction: column;
+}
+
+
+.Tennis .TennisCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 90;
+    width: 100%;
+    box-sizing: border-box;
+    /* padding: 150px; */
+}
+
+
+.Tennis h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 3rem;
+
+}
+
+
+
+.FedererWrapper img {
+    width: 300px;
+}
+
+.Tennis .Federer {
+
+    transform: translateX(100%);
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+    width: 170px;
+    height: 380px;
+
+}
+
+@media screen and (max-width: 600px) {
+    .Tennis {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        height: max-content;
+    }
+
+    .Tennis .TennisCard {
+        width: 110px;
+        height: 110px;
+        font-size: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+        gap: 10px;
+        box-sizing: border-box;
+        transform: translateX(100%);
+        padding: 5px;
+    }
+
+    .TennisCard .CardImage {
+        width: 60px;
+        height: 60px;
+    }
+
+    .Tennis .TennisInfoWrapperDiv{
+        
+        width: 100%;
+        height: 80%;
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        /* background-color: aliceblue; */
+
+        
+    }
+
+    .Tennis .TennisCards {
+        padding: 10px;
+    }
+
+    .Tennis .Show{
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        
+    }
+
+    .Tennis .FedererWrapper{
+        height: max-content;
+    }
+
+    .FedererWrapper img {
+        width: 200px;
+    }
+
 
 }

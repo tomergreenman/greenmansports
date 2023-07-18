@@ -1,16 +1,19 @@
 import { createStore } from "redux";
 import TennisPlayerModel from "../Models/TennisPlayerModel";
 import TennisRankingModel from "../Models/TennisRankingModel";
+import LiveTennisModel from "../Models/LiveTennisModel";
 
 export class TennisState {
     public tennisRankings: TennisRankingModel[] = [];
     public tennisPlayers: TennisPlayerModel[] = [];
+    public liveScores : LiveTennisModel[] = [];
 
 }
 
 export enum TennisActionType {
     FetchRankings = "FetchRankings",
-    AddTennisPlayer = "AddTennisPlayer"
+    AddTennisPlayer = "AddTennisPlayer",
+    FetchLiveScores = "FetchLiveScores"
 }
 
 export interface TennisAction {
@@ -29,7 +32,10 @@ export function TennisReducer(currentState = new TennisState(), action: TennisAc
          
         case TennisActionType.AddTennisPlayer:
             newState.tennisPlayers.push(action.payload)
-            break;   
+            break;  
+        case TennisActionType.FetchLiveScores:
+            newState.liveScores = action.payload;
+            break     
     }
 
     return newState;

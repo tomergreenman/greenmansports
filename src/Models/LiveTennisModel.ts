@@ -19,7 +19,12 @@ class LiveTennisModel {
     public "Sets Player 1": number;
     public "Sets Player 2": number;
     public Surface: string;
+    public "Round": string
     public Tournament: string;
+    public "Initial Away Odd": number;
+    public "Initial Home Odd": number;
+    public "Live Away Odd": number;
+    public "Live Home Odd": number;
 
     //Added fields that do not exist in the model of the api but i will add
     // them in the service in order to use them in the liveScores component 
@@ -29,6 +34,11 @@ class LiveTennisModel {
     public homePlayerFlag: string;
     public awayPlayer2 : string;
     public homePlayer2: string;
+    public awayPlayer2Image: string;
+    public homePlayer2Image:string;
+    public awayPlayer2Flag: string;
+    public homePlayer2Flag: string;
+    
 
 
 

@@ -1,7 +1,42 @@
-.LiveScores {}
+.LiveScores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    min-height: calc(100vh - 50px);
+    padding-top: 100px;
+    box-sizing: border-box;
+    padding-bottom: 20px;
 
-.LiveScores img {
+
+
+}
+
+.TennisLiveScoreTable {
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    margin: 0;
+
+    /* font-size: 20px; */
+}
+
+.TennisLiveScoreTable:hover {
+    background-color: rgba(241, 255, 189, 0.305);
+
+}
+
+/* .LiveScores img {
     width: 40px;
+} */
+
+
+.TennisLiveScoreTable th {
+    height: 50px;
+    /* margin: auto; */
+
+
 }
 
 /* .LiveScores td, t {
@@ -9,13 +44,15 @@
 } */
 
 .TennisLiveScoreTable td,
-.TennisLiveScoreTable tr {
+.TennisLiveScoreTable tr, 
+.TennisLiveScoreTable th {
     border: 1px solid;
-    padding: 5px;
+    padding: 3px;
+    box-sizing: border-box;
 
 }
 
-.TennisLiveScoreTable td:nth-child(2) {
+.TennisLiveScoreTable td:nth-child(1) {
     /* border-right: none; */
     /* background-color: aquamarine; */
     /* display: grid; */
@@ -23,6 +60,14 @@
     /* height: 100%; */
     /* gap: 10px; */
     border: none;
+    text-align: left;
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: center; */
+    background-color: aliceblue;
+    padding-left: 10px;
+    /* box-sizing: border-box; */
+    /* width: 100%; */
     /* width: max-content; */
 }
 
@@ -37,18 +82,27 @@
     align-items: center;
 } */
 
-.TennisLiveScoreTable .Doubles{
+.TennisLiveScoreTable .Doubles {
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 5px;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+
 
 }
 
-.TennisLiveScoreTable .Singles{
+.TennisLiveScoreTable .Singles {
     display: flex;
     justify-content: flex-start;
     align-content: center;
-    background-color: beige;
     gap: 5px;
-    
+    height: 100%;
+    box-sizing: border-box;
+
 }
 
 .x {
@@ -57,13 +111,13 @@
     align-items: center;
 }
 
-.y{
-    width: 50px;
+.y {
+    /* width: 50px; */
 }
 
 
 
-.TennisLiveScoreTable td:nth-child(3) {
+.TennisLiveScoreTable td:nth-child(2) {
     background-color: rgb(222, 222, 222);
 }
 
@@ -73,3 +127,120 @@
 }
 
 /* .TennisLiveScoreTable  */
+
+
+@media screen and (max-width: 600px) {
+    .LiveScores{
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+
+    .TennisLiveScoreTable{
+        width: 80%;
+        height: 150px;
+        font-size: 80%;
+        /* margin: 0; */
+        margin-top: 0;
+        margin-bottom: 0;
+
+    }
+
+    .LiveScores img {
+        width: 10px;
+    }
+
+    .LiveScores .Spinner {
+        width: 150px;
+    }
+
+    .TennisLiveScoreTable td {
+        width: max-content;
+        min-width: 30px;
+        /* min-height: 70px; */
+    }
+
+    .LiveScores th{
+        height: auto;
+    }
+
+    .LiveScores tr {
+        /* height: 20px; */
+    }
+/* 
+    .y {
+        width: 10px;
+    }
+     */
+    
+}
+
+
+
+.PopUp {
+
+    height: 400px;
+    /* width: 300px; */
+    background-color: aliceblue;
+    border: 5px solid black;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 10;
+    position:fixed;
+    top:50%;
+    left:50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+
+.Overlay {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    height: 100vh;
+    background-color: rgba(119, 136, 153, 0.585);
+    z-index: 1;
+    width: 100%;
+
+    position:fixed;
+    top:50%;
+    left:50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+    /* display: block; */
+}
+
+.NoScroll {
+
+    
+    height: 100vh;
+    /* overflow-y: hidden; */
+    /* background-color: rgb(119, 136, 153); */
+    /* z-index: 10; */
+
+
+    
+}
+
+/* .ClosePopupButton{
+    background-color: rgba(0, 0, 0, 0.723);
+    border-radius: 45px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -45px;
+    right: -10px;
+} */
+
+
+
+

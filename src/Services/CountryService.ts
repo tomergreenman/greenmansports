@@ -23,8 +23,13 @@ class CountryService {
 
     async getOneCountry(countryName: string): Promise<CountryModel> {
 
+        console.log("cName", countryName);
+        
+
         const countries = await this.getAllCountries()
         let country = countries.find(country => country.name.common.toLocaleLowerCase() === countryName.toLocaleLowerCase());
+        console.log("conyrty", country);
+        
 
         // if (!country) {
 

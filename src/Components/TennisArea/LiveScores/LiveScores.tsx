@@ -2,20 +2,24 @@ import { useEffect, useState } from "react";
 import "./LiveScores.css";
 import tennisService from "../../../Services/TennisService";
 import LiveTennisModel from "../../../Models/LiveTennisModel";
-import { log } from "console";
-import axios from "axios";
 import noImage from "../../../Assets/Images/No_Image_Available.jpeg"
 import ghostImage from "../../../Assets/Images/ghost-headshot.png"
-import { on } from "stream";
+import LiveTennisStatisticsModel from "../../../Models/LiveTennisStatisticsModel";
+import LiveStatistics from "../LiveStatistics/LiveStatistics";
+import spinner from "../../../Assets/Images/1480.gif";
+
 
 function LiveScores(): JSX.Element {
 
     const [liveScores, setLiveScores] = useState<LiveTennisModel[]>([]);
-    const [oneLiveScore, setOneLiveScores] = useState<LiveTennisModel>();
+    const [oneLiveScore, setOneLiveScores] = useState<LiveTennisModel>(null);
     const [homeFlag, setHomeFlag] = useState<string>();
     const [awayFlag, setAwayFlag] = useState<string>();
     const [homePlayerImage, setHomePlayerImage] = useState<string>();
     const [awayPlayerImage, setAwayPlayerImage] = useState<string>();
+    const [popUp, setPopup] = useState<boolean>(false);
+    const [statistics, setStatistics] = useState<LiveTennisStatisticsModel>(null)
+    const [displaySpinner, setDisplaySpinner] = useState<boolean>(false)
 
 
     useEffect(() => {
@@ -32,7 +36,8 @@ function LiveScores(): JSX.Element {
                 console.log(liveScores);
                 // console.log(oneLiveScore);
                 // console.log(liveStats);
-                const rankings = await tennisService.getPlayersRanking();
+
+                // const rankings = await tennisService.getPlayersRanking();
 
                 // let awayPlayerId: string;
                 // for (const rank of rankings) {
@@ -105,15 +110,89 @@ function LiveScores(): JSX.Element {
         getLiveScores();
     }, [])
 
+    async function handlePupUp(statistics: LiveTennisStatisticsModel, liveSore?: LiveTennisModel): Promise<void> {
+        setPopup(!popUp)
+        if (statistics?.Text) {
+
+            // setPopup(false)
+
+        }
+
+        if (!popUp) {
+
+            const rankings = await tennisService.getPlayersRanking()
+
+            await tennisService.getPlayersImageAndFlagById(liveSore, statistics, rankings)
+
+            // const homePlayersImageAndFlag = await tennisService.getPlayersImageAndFlagById(liveSore, rankings);
+
+            // const homePlayerId = tennisService.getPlayersIdFromRankingsAndLiveScores(rankings, liveSore["Home Player"]);
+            // if(homePlayerId) {
+            //     const homePlayer = await tennisService.getPlayerInfo(homePlayerId)
+            //     statistics.homePlayerImage = homePlayer.Image;
+            // }
+            setStatistics(statistics)
+            setOneLiveScores(liveSore)
+            document.body.classList.add('NoScroll')
+
+        }
+        else {
+            console.log("NOT POUP");
+
+            document.body.classList.remove('NoScroll')
+            setStatistics(null)
+            setOneLiveScores(null)
+
+
+        }
+
+
+    }
+
+
     return (
         <div className="LiveScores">
 
+            {liveScores.length === 0 &&
+
+                <>
+                    <img className="Spinner" src={spinner} />
+                </>
+
+            }
+
             {liveScores && <>
                 {liveScores.map(oneLiveScore =>
-                    <table className="TennisLiveScoreTable" key={oneLiveScore.ID}>
+                    <table className="TennisLiveScoreTable" key={oneLiveScore.ID}
+                        onClick={async () => {
+
+                            try {
+
+                                setDisplaySpinner(true);
+
+                                const statistics = await tennisService.getLiveStats(oneLiveScore.ID)
+                                console.log("Triedf To Get Stats", statistics);
+
+
+
+                                await handlePupUp(statistics, oneLiveScore)
+                                setDisplaySpinner(false)
+                            }
+
+                            catch (err: any) {
+                                console.log(err.message);
+
+                            }
+
+                        }
+
+
+                        }
+
+                    >
                         <thead>
                             <tr>
-                                <th colSpan={6}>{oneLiveScore.Tournament} - {oneLiveScore.Surface}</th>
+                                <th colSpan={8}>{oneLiveScore.Tournament} - {oneLiveScore.Round} -  {oneLiveScore.Surface}</th>
                                 {/* <th></th>
                             <th></th>
                             <th></th>
@@ -124,33 +203,96 @@ function LiveScores(): JSX.Element {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img src={oneLiveScore.homePlayerImage ? oneLiveScore.homePlayerImage : ghostImage} /></td>
-                                <td className={oneLiveScore.homePlayer2 ? "Doubles" : "Singles"}>
+                                {/* <td><img src={oneLiveScore.homePlayerImage ? oneLiveScore.homePlayerImage : ghostImage} /></td> */}
+                                {!oneLiveScore.homePlayer2 &&
+                                    // <td className="Singles">
+
+                                    //     <div className="x y"><img src={oneLiveScore.homePlayerFlag ? oneLiveScore.homePlayerFlag : noImage} /></div>
+                                    //     <div className="x"><p>{oneLiveScore["Home Player"]}</p></div>
+
+                                    // </td>
+
+                                    <td>{oneLiveScore["Home Player"]}</td>
+                                }
+                                {/* <td className={oneLiveScore.homePlayer2 ? "Doubles" : "Singles"}>
                                     <div className="x y"><img src={oneLiveScore.homePlayerFlag ? oneLiveScore.homePlayerFlag : noImage} /></div>
                                     <div className="x"><p>{oneLiveScore["Home Player"]}</p></div>
-                                    {/* {oneLiveScore.homePlayer2 && <div>YESS</div>} */}
-                                </td>
-                                <td>{oneLiveScore["Player 1 Score"]}</td>
+                                </td> */}
+
+                                {oneLiveScore.homePlayer2 &&
+                                    <td className="Doubles">
+                                        <div className="Singles">
+                                            {/* <div className="x y"><img src={oneLiveScore.homePlayerFlag ? oneLiveScore.homePlayerFlag : noImage} /></div> */}
+                                            <div className="x"><p>{oneLiveScore["Home Player"]}</p></div>
+                                        </div>
+                                        <div className="Singles">
+                                            {/* <div className="x y"><img src={oneLiveScore.homePlayer2Flag ? oneLiveScore.homePlayerFlag : noImage} /></div> */}
+                                            <div className="x"><p>{oneLiveScore.homePlayer2}</p></div>
+                                        </div>
+
+
+                                    </td>
+                                }
+                                {oneLiveScore["Player 1 Score"] !== "None" ? <td>{oneLiveScore["Player 1 Score"]}</td> : <td>0</td>}
+
                                 <td>{oneLiveScore["Set1 Player 1"]}</td>
-                                {oneLiveScore["Set2 Player 1"] !== "None" ? <td>{oneLiveScore["Set2 Player 1"]}</td> : <td></td>}
-                                {oneLiveScore["Set2 Player 1"] !== "None" ? <td>{oneLiveScore["Set2 Player 1"]}</td> : <td></td>}
+                                {oneLiveScore["Set2 Player 1"] !== "None" ? <td>{oneLiveScore["Set2 Player 1"]}</td> : null}
+                                {oneLiveScore["Set3 Player 1"] !== "None" ? <td>{oneLiveScore["Set3 Player 1"]}</td> : null}
+                                {oneLiveScore["Set4 Player 1"] !== "None" ? <td>{oneLiveScore["Set4 Player 1"]}</td> : null}
+                                {oneLiveScore["Set5 Player 1"] !== "None" ? <td>{oneLiveScore["Set5 Player 1"]}</td> : null}
 
                             </tr>
+
                             <tr>
-                                <td><img src={oneLiveScore.awayPlayerImage ? oneLiveScore.awayPlayerImage : ghostImage} /></td>
+                                {/* <td><img src={oneLiveScore.awayPlayerImage ? oneLiveScore.awayPlayerImage : ghostImage} /></td> */}
                                 {/* <td><img src={oneLiveScore.awayPlayerFlag ? oneLiveScore.awayPlayerFlag : noImage} /><div>{oneLiveScore["Away Player"]}</div></td> */}
-                                <td className={oneLiveScore.awayPlayer2 ? "Doubles" : "Singles"}>
-                                    <div className="x y"><img src={oneLiveScore.awayPlayerFlag ? oneLiveScore.awayPlayerFlag : noImage} /></div>
-                                    <div className="x"><p>{oneLiveScore["Away Player"]}</p></div>
-                                    {/* {oneLiveScore.homePlayer2 && <div>YESS</div>} */}
-                                </td>
-                                <td>{oneLiveScore["Player 2 Score"]}</td>
+
+                                {!oneLiveScore.homePlayer2 &&
+                                    // <td className="Singles">
+
+                                    //     <div className="x y"><img src={oneLiveScore.awayPlayerFlag ? oneLiveScore.awayPlayerFlag : noImage} /></div>
+                                    //     <div className="x"><p>{oneLiveScore["Away Player"]}</p></div>
+
+                                    // </td>
+
+                                    <td>{oneLiveScore["Away Player"]}</td>
+
+                                }
+                                {/* <td className={oneLiveScore.homePlayer2 ? "Doubles" : "Singles"}>
+                                    <div className="x y"><img src={oneLiveScore.homePlayerFlag ? oneLiveScore.homePlayerFlag : noImage} /></div>
+                                    <div className="x"><p>{oneLiveScore["Home Player"]}</p></div>
+                                </td> */}
+
+                                {oneLiveScore.homePlayer2 &&
+                                    <td className="Doubles">
+                                        <div className="Singles">
+                                            {/* <div className="x y"><img src={oneLiveScore.awayPlayerFlag ? oneLiveScore.awayPlayerFlag : noImage} /></div> */}
+                                            <div className="x"><p>{oneLiveScore["Away Player"]}</p></div>
+                                        </div>
+                                        <div className="Singles">
+                                            {/* <div className="x y"><img src={oneLiveScore.awayPlayer2Flag ? oneLiveScore.awayPlayerFlag : noImage} /></div> */}
+                                            <div className="x"><p>{oneLiveScore.awayPlayer2}</p></div>
+                                        </div>
+
+
+                                    </td>
+                                }
+
+                                {oneLiveScore["Player 2 Score"] !== "None" ? <td>{oneLiveScore["Player 2 Score"]}</td> : <td>0</td>}
+
                                 <td>{oneLiveScore["Set1 Player 2"]}</td>
-                                {oneLiveScore["Set2 Player 2"] !== "None" ? <td>{oneLiveScore["Set2 Player 2"]}</td> : <td></td>}
-                                {oneLiveScore["Set2 Player 2"] !== "None" ? <td>{oneLiveScore["Set2 Player 2"]}</td> : <td></td>}
+                                {oneLiveScore["Set2 Player 2"] !== "None" ? <td>{oneLiveScore["Set2 Player 2"]}</td> : null}
+                                {oneLiveScore["Set3 Player 2"] !== "None" ? <td>{oneLiveScore["Set3 Player 2"]}</td> : null}
+                                {oneLiveScore["Set4 Player 2"] !== "None" ? <td>{oneLiveScore["Set4 Player 2"]}</td> : null}
+                                {oneLiveScore["Set5 Player 2"] !== "None" ? <td>{oneLiveScore["Set5 Player 2"]}</td> : null}
 
 
                             </tr>
+
+
+                            {/* <tr>
+                                <td colSpan={6}>{oneLiveScore.Round}</td>
+                            </tr> */}
                         </tbody>
                     </table>
 
@@ -161,10 +303,49 @@ function LiveScores(): JSX.Element {
             }
 
 
+            {displaySpinner &&
+
+
+                < img className="Spinner" src={spinner} />
+                // <div>WOWOWOWOWO</div>
 
 
 
-        </div>
+            }
+
+
+            {
+                popUp && statistics &&
+                <div>
+                    <div className="Overlay"
+                        onClick={() => {
+                            handlePupUp(null)
+                        }}
+                    ></div>
+                    {/* <div className="PopUp">
+
+
+                        <p>{oneLiveScore["Home Player"]}</p>
+                        <p>{oneLiveScore["Away Player"]}</p>
+                        <p>{statistics["P2 name"]}</p>
+                        <button className="ClosePopupButton" onClick={() => {
+                            closePopup()
+                        }}>X</button>
+
+                    </div> */}
+
+
+                    <LiveStatistics statistics={statistics} liveScore={oneLiveScore} handlePopUP={() => handlePupUp(null)} />
+
+                </div>
+
+            }
+
+
+
+
+
+        </div >
     );
 }
 

@@ -14,6 +14,9 @@ import tennisService from "../../../Services/TennisService";
 import AtpRankings from "../../TennisArea/ATPRanikings/AtpRankings";
 import countryService from "../../../Services/CountryService";
 import { get } from "http";
+import Welcome from "../Welcome/Welcome";
+import Golf from "../Golf/Golf";
+
 
 function Home(): JSX.Element {
 
@@ -37,27 +40,43 @@ function Home(): JSX.Element {
     //     getTeams()
     // },[])
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        const getCountries = async ()=>{
+        const getCountries = async () => {
 
-        const countries = await countryService.getAllCountries();
-        console.log(countries);
+            const countries = await countryService.getAllCountries();
+            console.log(countries);
         }
 
         getCountries()
-        
 
-    },[])
+
+    }, [])
 
     return (
         <div className="Home">
 
 
-            <Football />
-            <Tennis />
+            <section className="About">
+                <Welcome />
+            </section>
 
-            {/* <img src={footballer} /> */}
+            <section className="FootballSection">
+                <Football />
+            </section>
+
+
+            <section className="TennisSection">
+                <Tennis />
+            </section>
+
+            <section>
+                <Golf />
+            </section>
+
+
+            {/* <Tennis />
+
             <div className="Div1">
                 <img src={roy} className="roy" />
                 <img src={rashford} className="rashford" />
@@ -70,7 +89,7 @@ function Home(): JSX.Element {
                 <img src={rashford} className="rashford" />
                 <img src={federer} className="federer" />
                 <img src={lebron} className="lebron" />
-            </div>
+            </div> */}
         </div>
 
     );

@@ -3,17 +3,20 @@ import "./AtpRankings.css"
 import TennisRankingModel from "../../../Models/TennisRankingModel";
 import { useNavigate } from "react-router-dom";
 import tennisService from "../../../Services/TennisService";
-import spinner from "../../../Assets/Images/tenor.gif";
+import spinner from "../../../Assets/Images/1480.gif";
 
 function AtpRankings(): JSX.Element {
 
     const [rankings, setRankings] = useState<TennisRankingModel[]>([]);
+    const [displayedRankings, setDisplayedRankings] = useState<TennisRankingModel[]>([])
     const navigate = useNavigate();
 
     useEffect(() => {
         const getRankings = async () => {
             const rankings = await tennisService.getPlayersRanking();
             setRankings(rankings);
+            const subRankings = rankings.slice(0, 100)
+            setDisplayedRankings(subRankings)
             // const scores = await tennisService.getLiveScores();
             // console.log(scores);
 
@@ -23,26 +26,47 @@ function AtpRankings(): JSX.Element {
 
     }, []);
 
+    function display50MoreRankings() {
+        const lastRankingIndex = displayedRankings.length;
+        console.log(lastRankingIndex);
+
+        const subRankings = rankings.slice(0, lastRankingIndex + 100)
+        setDisplayedRankings(subRankings)
+
+    }
+
+    function display50LessRankings() {
+        const lastRankingIndex = displayedRankings.length;
+        console.log(lastRankingIndex);
+
+        const subRankings = rankings.slice(0, lastRankingIndex - 100)
+        setDisplayedRankings(subRankings)
+
+    }
+
 
 
     return (
         <div className="AtpRankings">
             {/* <div className="BufferDiv"></div> */}
 
+
             {
                 rankings.length < 1 &&
                 <>
-                    <img className="spinner" src={spinner} />
+                    <img className="Spinner" src={spinner} />
                 </>
             }
 
             {rankings.length > 1 &&
 
+
+
                 <table className="AtpTable">
                     <thead>
                         <tr>
                             <th>Rank</th>
-                            <th>Name</th>
+                            <th>Names </th>
                             <th>Age</th>
                             <th>Rank Diff</th>
                             <th>More Info</th>
@@ -51,7 +75,7 @@ function AtpRankings(): JSX.Element {
                     </thead>
 
                     <tbody>
-                        {rankings.map(rank =>
+                        {displayedRankings.map(rank =>
                             <tr key={rank.id}>
                                 <td>#{rank.Rank}</td>
                                 <td className="PlayerName" onClick={() => { navigate("/tennis-players/" + rank.id) }}>{rank.Name}</td>
@@ -60,9 +84,15 @@ function AtpRankings(): JSX.Element {
                                 <td><button onClick={() => { navigate("/tennis-players/" + rank.id) }}>More Info</button></td>
                             </tr>
                         )}
+                        <tr>
+                            <td colSpan={6}><button className="RankingsController" disabled={displayedRankings.length >= 1000} onClick={display50MoreRankings}>Show More</button>
+                            <button className="RankingsController" disabled={displayedRankings.length <= 100}  onClick={display50LessRankings}>Show Less</button></td>
+                            
+                        </tr>
 
                     </tbody>
                 </table>
+
             }
 
         </div>

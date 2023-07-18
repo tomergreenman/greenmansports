@@ -20,7 +20,7 @@ import LiveScores from "../../TennisArea/LiveScores/LiveScores";
 function Routing(): JSX.Element {
     return (
         <div className="Routing">
-                {/* <div className="BufferDiv"></div> */}
+            {/* <div className="BufferDiv"></div> */}
             <Routes>
                 <Route path="/home" element={<Home />} />
                 {/* <Route path="/premier-league" element={<PremierLeague />} /> */}
@@ -35,9 +35,11 @@ function Routing(): JSX.Element {
                 <Route path="/teams/list/:teamId" element={<TeamMorInfoList />} />
                 <Route path="tennis-players/:playerId" element={<TennisPlyer />} />
                 <Route path="/tennis-rankings" element={<AtpRankings />} />
-                <Route path="/tennis-liveScores" element={<LiveScores />}/>
-                <Route path="/footer" element={<Footer />} />
+                <Route path="/tennis-liveScores" element={<LiveScores />} />
+                {/* <Route path="/footer" element={<Footer />} /> */}
                 <Route path="/" element={<Navigate to={"/home"} />} />
+                <Route path="*" element={<Navigate to={"/home"} />} />
+
             </Routes>
 
         </div>

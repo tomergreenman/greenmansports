@@ -5,6 +5,8 @@ import SeasonModel from "../../../../Models/SeasonsModel";
 import StandingsModel from "../../../../Models/StandingsModel";
 import leaguesService from "../../../../Services/LeaguesService";
 import "./LeaguesTables.css";
+import spinner from "../../../../Assets/Images/1480.gif";
+
 
 function LeaguesTables(): JSX.Element {
 
@@ -13,7 +15,7 @@ function LeaguesTables(): JSX.Element {
     const SelectRef = useRef<HTMLSelectElement>()
 
     const [seasons, setSeasons] = useState<SeasonModel[]>([])
-    const [standings, setStandings] = useState<StandingsModel[]>();
+    const [standings, setStandings] = useState<StandingsModel[]>([]);
 
 
     useEffect(() => {
@@ -74,7 +76,14 @@ function LeaguesTables(): JSX.Element {
     return (
         <div className="LeaguesTables">
 
-            {standings && <>
+            {
+                standings?.length === 0 &&
+                <>
+                    <img className="Spinner" src={spinner} />
+                </>
+            }
+
+            {standings?.length > 0 && <>
 
                 <div className="SeasonPicker">
 
@@ -84,7 +93,7 @@ function LeaguesTables(): JSX.Element {
                         <option>{seasons[1].slug}</option>
                         <option>{seasons[2].slug}</option> */}
                         <>
-                            {seasons.map(season =>  <option key={season.id}>{season.slug}</option> )}
+                            {seasons.map(season => <option key={season.id}>{season.slug}</option>)}
                         </>
                     </select>
 

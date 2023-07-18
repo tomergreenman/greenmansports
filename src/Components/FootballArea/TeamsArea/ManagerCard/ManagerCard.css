@@ -1,5 +1,4 @@
-
-.ManagerCard  {
+.ManagerCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,21 +8,30 @@
     background-color: rgb(240, 245, 255);
     text-align: center;
     padding-bottom: 5px;
-	
+
 }
 
 
 
-.ManagerCard img{
+.ManagerCard img {
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
-.ManagerCard h4{
+.ManagerCard h4 {
     margin: 3px;
 }
-.ManagerCard span{
+
+.ManagerCard span {
     margin-bottom: 5px;
 }
 
+
+
+@media screen and (max-width : 600px) {
+    .ManagerCard {
+        width: 120px;
+        font-size: 14px;
+    }
+}

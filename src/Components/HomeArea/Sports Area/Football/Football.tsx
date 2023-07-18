@@ -2,6 +2,11 @@ import "./Football.css"
 import rashford from "../../../../Assets/Images/Rashford.png"
 import { useEffect, useRef } from "react"
 import observerFunction from "../../../../Utils/Observer"
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import rankingsImage from "../../../../Assets/Images/ranknigs-image.png"
+import girlPower from "../../../../Assets/Images/women-power.png"
+import info from "../../../../Assets/Images/info.png"
+import football from "../../../../Assets/Images/football.jpeg"
 
 
 
@@ -27,17 +32,12 @@ function Football(): JSX.Element {
 
     useEffect(() => {
 
-        // divRef.current.style.backgroundColor = "green"
 
         if (divRef.current) {
             divRef.current.forEach(l => observer.observe(l));
             console.log(divRef.current);
 
         }
-        // console.log(divRef);
-
-
-
 
     }, [])
 
@@ -46,19 +46,43 @@ function Football(): JSX.Element {
     return (
         <div className="Football">
 
-            <div className="WrapperDiv Rash">
-                <img src={rashford} className="rashford Hidden" ref={pushRef} />
+            <div className="RashfordWrapper">
+
+                <div className="Rash">
+                    <h1>Football</h1>
+
+                    {/* <img src={rashford} className="rashford Hidden" ref={pushRef} /> */}
+                </div>
+                <img src={football} />
+
             </div>
 
 
-            <div className="WrapperDiv">
-                <div className="FootballInfo Hidden" ref={pushRef}>
-                    <h1 className="FootballText" >Football is Amazing</h1>
-                    <p>ffsfds fsdfsdfs fsdfsdf fsdfsdf fsdfsd fsdfsd fdsfsd fsdf fdsfsd fsdf fdsfsd fdsfsd <br />
-                        dsfdsf fsd dfs dsf sd <br />
-                        fds sdfdsfsdf fsdfsdf sdf sdfsdfsdf sdf sdfdsfsdfsdf
-                    </p>
 
+            <div className="CardsWrapper">
+                {/* <h1>Football</h1> */}
+
+                <div className="FootballCards">
+                    <div className="FootballCard Hidden" ref={pushRef}>
+                        <span>Tables of the leading leagues in the world</span>
+                        {/* <FormatListNumberedIcon  /> */}
+                        <img className="CardImage" src={rankingsImage} />
+
+                    </div>
+
+                    <div className="FootballCard Hidden" ref={pushRef}>
+                        <span>Women Leagues Included!</span>
+                        {/* <FormatListNumberedIcon  /> */}
+                        <img className="CardImage" src={girlPower} />
+
+                    </div>
+
+                    <div className="FootballCard Hidden" ref={pushRef}>
+                        <span>Teams and Players Info</span>
+                        {/* <FormatListNumberedIcon  /> */}
+                        <img className="CardImage" src={info} />
+
+                    </div>
                 </div>
             </div>
 

@@ -1,65 +1,77 @@
 .Football {
     width: 100%;
-    height: 100vh;
+    height: 600px;
     /* background-color: rgb(240, 255, 239); */
-    background-image: url("https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/61b5911c9d37d0449acee390_soccer-ball-on-grass-in-corner-kick-position-on-so-2021-08-29-10-46-54-utc-min-p-2600.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-image: url("https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/61b5911c9d37d0449acee390_soccer-ball-on-grass-in-corner-kick-position-on-so-2021-08-29-10-46-54-utc-min-p-2600.jpeg"); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
     box-sizing: border-box;
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 55% 45%;
+    background-color: rgba(172, 172, 172, 0.387);
+
+
 }
 
-.Football .WrapperDiv {
+.Football .CardsWrapper,
+.Football .RashfordWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px;
-    /* border: 1px solid; */
+    padding: 40px;
+    gap: 10px;
+
+}
 
 
+.Football .FootballCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(60, 58, 58, 0.219);
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
 
+.Football .CardImage {
+    width: 80px;
+    height: 80px;
 }
 
 
 .Football h1 {
     text-align: center;
     width: 100%;
+    font-size: 3rem;
+    color: rgb(6, 6, 101);
 
 }
 
-.Football p {
-    padding-top: 50px;
-}
+.Football .FootballCard {
+    /* border: 1px solid rgb(0, 0, 0); */
+    border: 2px solid rgb(0, 64, 133);
 
-.Football .FootballInfo {
-    border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
-    background-color: rgb(254, 255, 229);
-    height: 300px;
+    background-color: rgba(252, 251, 251, 0.744);
+
+    /* height: 300px; */
+    width: 160px;
+    height: 160px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    gap: 10px;
     box-sizing: border-box;
     transform: translateX(100%);
 }
-
-.Football .rashford {
-
-    transform: translateX(-100%);
-    z-index: 0;
-    padding: 0;
-    margin: 0;
-    width: 200px;
-
-}
-
 
 .Football .Hidden {
     opacity: 0;
@@ -74,5 +86,84 @@
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+
+}
+
+
+
+.RashfordWrapper img {
+    width: 600px;
+    height: 400px;
+    border-radius: 5px;
+}
+
+
+
+/* .Football .rashford {
+    transform: translateX(-100%);
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+    width: 170px;
+    height: 380px;
+
+
+} */
+
+
+@media screen and (max-width:600px) {
+
+    .Football {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .RashfordWrapper img {
+        width: 300px;
+        height: 200px;
+        border-radius: 5px;
+    }
+
+    .Football .CardsWrapper {
+        width: 95%;
+        height: 80%;
+    }
+
+    .Football .FootballCards {
+        width: 100%;
+
+    }
+
+    .Football .FootballCard {
+
+        width: 110px;
+        height: 110px;
+        font-size: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+        gap: 10px;
+        box-sizing: border-box;
+        transform: translateX(100%);
+        padding: 5px;
+    }
+
+    .Football .CardImage {
+        width: 60px;
+        height: 60px;
+    }
+
+    .Football .Show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    
+    }
 
 }

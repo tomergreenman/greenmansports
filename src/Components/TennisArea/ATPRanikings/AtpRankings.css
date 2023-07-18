@@ -5,7 +5,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    min-height: calc(100vh - 74.5px);
+    min-height: calc(100vh - 50px);
+    width: 100%;
 
 
     /* margin-top: -50px; */
@@ -23,16 +24,10 @@
     padding: 1px;
 }
 
-.AtpRankings .spinner {
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 
 .AtpRankings td {
-    padding: 2px;
+    /* padding: 2px; */
 }
 
 .AtpTable tr:nth-child(odd) {
@@ -40,7 +35,7 @@
 }
 
 .AtpTable tr:nth-child(even) {
-background-color: white;
+    background-color: white;
 }
 
 .AtpTable td:nth-child(1),
@@ -48,32 +43,99 @@ background-color: white;
     border-right: 1px solid;
 }
 
-.AtpTable{
+.AtpTable {
     box-sizing: border-box;
     font-weight: bold;
     margin: auto;
     border-collapse: collapse;
     text-align: center;
-    /* min-width: 50%; */
+    /* width: 800px; */
+    /* width: 100%; */
+    /* min-width: 40%; */
+    max-width: 80%;
     /* max-width: 20%; */
-    border: 10px solid;
-    /* max-width: 80%; */
+    border: 2px solid;
+    /* width: 50px; */
     /* margin-top: 74.50px; */
+    /* overflow-wrap: break-word; */
+    font-size: larger;
+    margin-top: 74.5px;
 }
 
-.AtpTable th{
+.AtpTable tr,
+.AtpTable td,
+.AtpTable th {
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid;
+    /* overflow-wrap: break-word; */
+    /* word-wrap: break-word; */
+
+
+}
+
+.AtpTable th {
     background-color: aliceblue;
+    /* width: 20%; */
 }
 
 .AtpTable tr:hover {
     background-color: lightgoldenrodyellow;
 }
 
-.AtpRankings td{
-    /* max-width: 5px; */
-    /* font-size:medium; */
-}
-.AtpRankings tr{
-    /* max-width: 80%; */
+.AtpTable tr:last-child td {
+    text-align: start;
+    background-color: aliceblue;
 }
 
+.AtpTable tr:last-child tr:hover {
+    background-color: transparent;
+}
+
+.AtpTable .RankingsController {
+    margin-right: 20px;
+    /* background-color: rgb(0, 0, 0); */
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 5px;
+    color: black;
+}
+
+.AtpRankings .Spinner{
+     /* width: 200px; */
+}
+
+.AtpTable td {
+    /* width: 20%; */
+    /* width: 2%; */
+    /* font-size:medium; */
+    /* overflow-wrap: break-word; */
+    /* overflow: auto; */
+
+}
+
+.AtpTable tr {
+    /* width: 100%; */
+    /* border: 1px solid; */
+
+
+}
+
+/* .AtpTable tr>td:nth-child(2){
+   background-color: aqua;
+
+} */
+
+
+
+@media screen and (max-width: 600px) {
+    .AtpTable {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .AtpTable {
+        font-size: 13px;
+    }
+}

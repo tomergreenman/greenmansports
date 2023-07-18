@@ -1,12 +1,11 @@
 .Menu {
-    /* position: absolute;
-    top: 0; */
-    position: sticky;
-    top: 0;
+    /* position: absolute; */
+    position: fixed;
+    /* top: 0; */
     left: 0;
+    right: 0;
     width: 100%;
-    
-   
+
 }
 
 .Menu a {
@@ -45,7 +44,7 @@
 
 
 nav {
-    background: #122331;
+    background-color: #122331;
     /* position: relative;; */
     width: 100%;
     display: flex;
@@ -136,7 +135,7 @@ ul {
 .SubDropDownMenu {
     position: absolute;
     /* top: 34px; */
-    /* left: 93px; */
+    left: 123px;
 
     background-color: rgb(113, 113, 113);
     opacity: 0;
@@ -153,4 +152,15 @@ ul {
 
 .CountryLi {
     position: relative;
+}
+
+
+@media screen and (max-width: 600px) {
+    .Menu {
+        font-size: smaller;
+    }
+    .Menu .SubDropDownMenu{
+        left: 111px;
+    }
+
 }

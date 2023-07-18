@@ -32,3 +32,12 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
+
+@media screen and (max-width : 600px) {
+    .TeamMorInfoCard{
+        width: 100px;
+        font-size: 10px;
+    }
+    
+}

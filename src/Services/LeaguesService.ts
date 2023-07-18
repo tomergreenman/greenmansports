@@ -5,6 +5,7 @@ import SeasonModel from "../Models/SeasonsModel";
 import StandingsModel from "../Models/StandingsModel";
 import TeamModel from "../Models/TeamModel";
 import appConfig from "../Utils/Config";
+import ManagerModel from "../Models/ManagerModel";
 
 class LeagueService {
 
@@ -52,7 +53,7 @@ class LeagueService {
         return team;
     }
 
-    async getManagerById(managerId: number): Promise<PersonModel> {
+    async getManagerById(managerId: number): Promise<ManagerModel> {
         const response = await axios.get(appConfig.managersUrl + managerId, { headers: appConfig.headers });
         const manager = response.data.data;
         return manager;

@@ -8,31 +8,40 @@
 }
 
 .LeaguesTables {
-    /* margin-top: 100px; */
+    padding-top: 74.5px;
     box-sizing: border-box;
+    /* min-height: calc(100vh - 124.5px); */
+    /* min-height: 5000px; */
+    /* height: 100%; */
+    padding-bottom: 20px;
+
+
 }
 
 
 
 
-.LeaguesTable,
-table {
+.LeaguesTables table {
     margin: auto;
     border: 1px solid;
     border-collapse: collapse;
     text-align: center;
     /* width: 600px; */
     font-size: large;
+    max-width: 80%;
+   /* margin-bottom: 20px; */
+   /* padding-bottom: 20px; */
 }
 
 .LeaguesTable tr,
 .LeaguesTable td,
 .LeaguesTable th {
-    /* border: 1px solid;
-    border-collapse: collapse; */
+    border: 1px solid;
+    border-collapse: collapse;
     max-height: 50px;
     padding: 5px;
-    min-width: 30px;
+    min-width: 10px;
+    /* max-width: 50px; */
 }
 
 .LeaguesTable th {
@@ -65,4 +74,31 @@ table {
 
 .LeaguesTable .Rank {
     border: 1px solid;
+}
+
+
+@media screen and (max-width: 600px) {
+    .LeaguesTables .LeaguesTable {
+        font-size: 10px;
+    }
+
+
+    .LeaguesTables .LeaguesTable img {
+        width: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .LeaguesTable img {
+        width: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .LeaguesTable td{
+        max-width: 50px;
+    }
+    
 }

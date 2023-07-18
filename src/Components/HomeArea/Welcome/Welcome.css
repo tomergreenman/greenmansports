@@ -1,0 +1,69 @@
+.Welcome {
+    background-color: rgb(255, 255, 255);
+    /* height: 825.5px; */
+    height: calc(100vh - 74.5px);
+    /* min-height: calc(100vh - 50px); */
+
+
+    padding-top: 74.5px;
+    background-image: url("../../../Assets//Images/sports-cover4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-wrap: break-word;
+    width: 100%;
+
+ 
+
+}
+
+
+.Welcome h1{
+    font-size: 4rem;
+}
+
+.Welcome .TextWrapper{
+    /* width: max-content; */
+    /* background-color: aliceblue; */
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    width: 90%;
+    box-sizing: border-box;
+
+}
+
+.TextWrapper p{
+    font-size: 25px;
+    font-weight: bold;
+}
+.TextWrapper .Greenman{
+    /* font-size: 4rem; */
+    color: rgb(5, 118, 5);
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .Welcome ,.TextWrapper{
+       overflow-wrap: break-word;
+       /* padding-left: 20px; */
+
+    }
+
+    .Welcome h1{
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .TextWrapper p{
+        font-size: 95%;
+        font-weight: bold;
+    }
+
+    
+}
