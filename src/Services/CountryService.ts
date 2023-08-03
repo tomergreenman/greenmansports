@@ -2,18 +2,21 @@ import axios from "axios";
 import countriesConfig from "../Utils/CountrysConfig";
 import CountryModel from "../Models/CountryModel";
 import { CountryActionType, CountryStore } from "../Redux/CountriesState";
-import noFlag from "../Assets/Images/no-image.png"
 
 class CountryService {
 
     async getAllCountries(): Promise<CountryModel[]> {
-
+    
+        //Get al countries from redux
         let countries = CountryStore.getState().countries;
 
+        // if no countries than get from API
         if (countries.length === 0) {
 
             const response = await axios.get(countriesConfig.allCountries);
             countries = response.data;
+        
+            // send all countries to redux
             CountryStore.dispatch({ type: CountryActionType.FetchCountries, payload: countries });
         }
 
@@ -23,23 +26,8 @@ class CountryService {
 
     async getOneCountry(countryName: string): Promise<CountryModel> {
 
-        console.log("cName", countryName);
-        
-
-        const countries = await this.getAllCountries()
+        const countries = await this.getAllCountries();
         let country = countries.find(country => country.name.common.toLocaleLowerCase() === countryName.toLocaleLowerCase());
-        console.log("conyrty", country);
-        
-
-        // if (!country) {
-
-        //     // const response = await axios.get(countriesConfig.countryByNameUrl + countryName)
-        //     // country = response.data[0];
-        //     country = new CountryModel()
-        //     country.flags.png = "Fd"
-
-
-        // }
         return country;
 
     }

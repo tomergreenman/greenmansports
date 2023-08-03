@@ -12,7 +12,7 @@ class TennisPlayerModel {
     public "weight(kgs)": string;
     public "Prize money Career": string
 
-    // Added field that will be added in the service because does not exist in ipa
+    // Added field that will be added in the service because does not exist in IPA
     public id : string;
 
 }

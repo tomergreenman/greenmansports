@@ -1,10 +1,15 @@
+//Component NOT IN USE AT THE MOMENT
+//Component NOT IN USE AT THE MOMENT
+//Component NOT IN USE AT THE MOMENT
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import EnglandCodes from "../../../../Models/EnglandCodes";
 import TeamModel from "../../../../Models/TeamModel";
-import leaguesService from "../../../../Services/LeaguesService";
+import leaguesService from "../../../../Services/FootballService";
 import TeamsList from "../TeamsList/TeamsList";
 import "./AllTeamsList.css";
+
+
 
 function AllTeamsList(): JSX.Element {
 

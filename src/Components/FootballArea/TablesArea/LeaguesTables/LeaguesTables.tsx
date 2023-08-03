@@ -1,9 +1,8 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import SeasonModel from "../../../../Models/SeasonsModel";
 import StandingsModel from "../../../../Models/StandingsModel";
-import leaguesService from "../../../../Services/LeaguesService";
+import leaguesService from "../../../../Services/FootballService";
 import "./LeaguesTables.css";
 import spinner from "../../../../Assets/Images/1480.gif";
 
@@ -12,7 +11,7 @@ function LeaguesTables(): JSX.Element {
 
     const navigate = useNavigate();
     const params = useParams();
-    const SelectRef = useRef<HTMLSelectElement>()
+    const SelectRef = useRef<HTMLSelectElement>();
 
     const [seasons, setSeasons] = useState<SeasonModel[]>([])
     const [standings, setStandings] = useState<StandingsModel[]>([]);
@@ -23,14 +22,18 @@ function LeaguesTables(): JSX.Element {
             try {
                 const leagueId = +params.leagueId;
                 const seasons = await leaguesService.getSeasonsByLeague(leagueId);
-                const standing = await leaguesService.getAnyLeagueTable(seasons[0].id);
-                setStandings(standing);
+
+                // get current year season standings
+                const standings = await leaguesService.getAnyLeagueTable(seasons[0].id);
+                setStandings(standings);
                 setSeasons(seasons);
+
+                // always restart and display current year slug in select element after user leaves tables page and return later
                 if (SelectRef.current) SelectRef.current.value = seasons[0].slug;
 
             }
             catch (err: any) {
-                console.log(err);
+                console.log(err.message);
 
             }
         }
@@ -44,25 +47,14 @@ function LeaguesTables(): JSX.Element {
 
         try {
             let standings: StandingsModel[] = [];
+
+            // get slug from select element
             const slug = event.target.value;
-            // switch (slug) {
-            //     case seasons[0].slug:
-            //         standings = await leaguesService.getAnyLeagueTable(seasons[0].id);
-            //         break;
 
-            //     case seasons[1].slug:
-            //         standings = await leaguesService.getAnyLeagueTable(seasons[1].id);
-            //         break;
+            const season = seasons.find(season => season.slug === slug);
+            standings = await leaguesService.getAnyLeagueTable(season.id);
 
-            //     case seasons[2].slug:
-            //         standings = await leaguesService.getAnyLeagueTable(seasons[2].id);
-            //         break;
-            // }
-
-            const season = seasons.find(season => season.slug === slug)
-            standings = await leaguesService.getAnyLeagueTable(season.id)
-
-            setStandings(standings)
+            setStandings(standings);
 
         }
 
@@ -89,9 +81,7 @@ function LeaguesTables(): JSX.Element {
 
                     <label>Season:</label>
                     <select ref={SelectRef} onChange={handleSeasonChange}>
-                        {/* <option>{seasons[0].slug}</option>
-                        <option>{seasons[1].slug}</option>
-                        <option>{seasons[2].slug}</option> */}
+
                         <>
                             {seasons.map(season => <option key={season.id}>{season.slug}</option>)}
                         </>
@@ -121,7 +111,7 @@ function LeaguesTables(): JSX.Element {
 
                         {standings.map(standing => <tr key={standing.team.id}>
                             <td className="Rank">{standing.position}</td>
-                            <td className="Club" onClick={() => navigate("/teams/list/" + standing.team.id)}><img src={standing.team.logo} /> {standing.team.name}</td>
+                            <td className="Club" onClick={() => navigate("/greenmansports/teams/list/" + standing.team.id)}><img src={standing.team.logo} /> {standing.team.name}</td>
                             <td>{standing.fields.matches_total}</td>
                             <td>{standing.fields.wins_total}</td>
                             <td>{standing.fields.draws_total}</td>

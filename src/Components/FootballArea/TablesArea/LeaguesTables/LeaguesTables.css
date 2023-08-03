@@ -1,24 +1,22 @@
+.LeaguesTables {
+    padding-top: 74.5px;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 100px);
+    background-image: url("../../../../Assets/Images/football-pitch.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .LeaguesTables .SeasonPicker {
     text-align: center;
     padding: 20px;
+    font-weight: bold;
 }
 
 .LeaguesTables select {
     margin: 5px;
 }
-
-.LeaguesTables {
-    padding-top: 74.5px;
-    box-sizing: border-box;
-    /* min-height: calc(100vh - 124.5px); */
-    /* min-height: 5000px; */
-    /* height: 100%; */
-    padding-bottom: 20px;
-
-
-}
-
-
 
 
 .LeaguesTables table {
@@ -26,11 +24,9 @@
     border: 1px solid;
     border-collapse: collapse;
     text-align: center;
-    /* width: 600px; */
     font-size: large;
     max-width: 80%;
-   /* margin-bottom: 20px; */
-   /* padding-bottom: 20px; */
+    background-color: white;
 }
 
 .LeaguesTable tr,
@@ -41,11 +37,9 @@
     max-height: 50px;
     padding: 5px;
     min-width: 10px;
-    /* max-width: 50px; */
 }
 
 .LeaguesTable th {
-    /* text-align: start; */
     background-color: aliceblue;
 }
 
@@ -56,7 +50,6 @@
 }
 
 .LeaguesTable .Club {
-    /* padding-left: 20px; */
     text-align: start;
     display: flex;
     justify-content: flex-start;
@@ -82,23 +75,12 @@
         font-size: 10px;
     }
 
-
-    .LeaguesTables .LeaguesTable img {
-        width: 20px;
-    }
-    
-}
-
-@media screen and (max-width: 600px) {
     .LeaguesTable img {
         width: 20px;
     }
-    
-}
 
-@media screen and (max-width: 600px) {
-    .LeaguesTable td{
+    .LeaguesTable td {
         max-width: 50px;
     }
-    
+
 }

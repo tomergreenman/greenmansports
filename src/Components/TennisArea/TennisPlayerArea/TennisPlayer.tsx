@@ -7,9 +7,6 @@ import noImage from "../../../Assets/Images/ghost-headshot.png"
 import spinner from "../../../Assets/Images/1480.gif";
 
 
-
-import axios from "axios";
-
 function TennisPlyer(): JSX.Element {
 
     const params = useParams();
@@ -47,12 +44,8 @@ function TennisPlyer(): JSX.Element {
             {
                 !player &&
 
+                < img className="Spinner" src={spinner} />
 
-
-                    < img className="Spinner" src={spinner} />
-                    // <div>WOWOWOWOWO</div>
-                    
-                    
             }
 
             {
@@ -60,9 +53,7 @@ function TennisPlyer(): JSX.Element {
 
                     <div className="TennisPlayerContainer">
 
-
                         <div className="PlayerInfo">
-
 
                             <h1>{player.Name}</h1>
                             <div className="Age"><span className="top">Age</span ><h2 className="middle">{player.Age}</h2></div>
@@ -72,7 +63,6 @@ function TennisPlyer(): JSX.Element {
                             <div className="Age"><span>Hight {'(cm)'}</span><h2 className="middle">{player["height(cm)"]}</h2></div>
                             <div className="Age"><span>Weight {'(kg)'}</span><h2 className="middle">{player["weight(kgs)"]}</h2></div>
                             <div className="Age Rank"><span>Rank</span><h2>#{player.Rank}</h2></div>
-
 
                         </div>
 
@@ -84,7 +74,6 @@ function TennisPlyer(): JSX.Element {
                     </div >
                 </>
             }
-
 
         </div>
     )

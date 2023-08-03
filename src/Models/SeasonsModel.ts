@@ -6,4 +6,4 @@ class SeasonModel {
 
 }
 
-export default SeasonModel
+export default SeasonModel;

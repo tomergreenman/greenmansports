@@ -23,9 +23,12 @@ class StandingsModel {
     public goalsAgainst: number;
     public goalsDifference: number;
 
+    //added field to help saving seasons standings to redux
+    public seasonId: number;
 
 
-    public constructor(standings: StandingsModel) {
+
+    public constructor(standings: StandingsModel, seasonId:number) {
         this.position = standings.position;
         this.team = {
             id: standings.team.id,
@@ -48,6 +51,8 @@ class StandingsModel {
         this.goalsFor = +this.fields.goals_total.substring(0, this.fields.goals_total.indexOf(":"));
         this.goalsAgainst = +this.fields.goals_total.substring(this.fields.goals_total.indexOf(":") + 1);
         this.goalsDifference = +this.goalsFor - +this.goalsAgainst
+
+        this.seasonId = seasonId;
 
     };
 };

@@ -41,7 +41,6 @@
     font-weight: bold;
 }
 .TextWrapper .Greenman{
-    /* font-size: 4rem; */
     color: rgb(5, 118, 5);
 
 }
@@ -51,8 +50,6 @@
 
     .Welcome ,.TextWrapper{
        overflow-wrap: break-word;
-       /* padding-left: 20px; */
-
     }
 
     .Welcome h1{

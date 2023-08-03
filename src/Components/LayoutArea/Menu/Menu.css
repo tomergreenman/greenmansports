@@ -1,7 +1,5 @@
 .Menu {
-    /* position: absolute; */
     position: fixed;
-    /* top: 0; */
     left: 0;
     right: 0;
     width: 100%;
@@ -11,17 +9,8 @@
 .Menu a {
     text-decoration: none;
     color: whitesmoke;
-    padding: 3px;
 }
 
-
-
-/* .Menu .active {
-    font-size: larger;
-    text-decoration:underline;
-    font-weight: bold;
-
-} */
 
 .Icons {
     position: relative;
@@ -32,25 +21,17 @@
     width: 15px;
 }
 
-
-
-
 .FootballLi {
     width: max-content;
 
 }
 
-
-
-
 nav {
     background-color: #122331;
-    /* position: relative;; */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding: 1rem 2rem; */
     padding: 20px;
     box-sizing: border-box;
     z-index: 1;
@@ -69,17 +50,7 @@ ul {
 
 .MainLi {
     width: max-content;
-    /* text-align: center; */
 }
-
-
-
-
-/* .FootballLi{
-    width: 53px;
-} */
-
-
 
 .menu-items {
     display: flex;
@@ -88,16 +59,12 @@ ul {
 
 .menu-items li {
     padding: 0.5rem 1rem;
-    /* Good to know */
     transition: background 0.5s ease-in-out;
 }
 
 .menu-items li:hover {
-    background-color: #ff652f;
+    background-color: rgb(21, 107, 94);
 }
-
-
-
 
 
 /* dropdown */
@@ -111,13 +78,10 @@ ul {
     position: absolute;
     background: #122331;
     width: max-content;
-    /* top: 0px; */
     left: 0px;
     opacity: 0;
     visibility: hidden;
-    /* top: 34.5px; */
-    /* Good to know */
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.3s;
     z-index: 10;
 
 }
@@ -134,13 +98,11 @@ ul {
 
 .SubDropDownMenu {
     position: absolute;
-    /* top: 34px; */
-    left: 123px;
-
+    left: 117px;
     background-color: rgb(113, 113, 113);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
     z-index: 10;
 
 }
@@ -157,10 +119,10 @@ ul {
 
 @media screen and (max-width: 600px) {
     .Menu {
-        font-size: smaller;
+        font-size: 70%;
     }
     .Menu .SubDropDownMenu{
-        left: 111px;
+        left: 96px;
     }
 
 }

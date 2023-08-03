@@ -29,19 +29,15 @@ class LiveTennisModel {
     //Added fields that do not exist in the model of the api but i will add
     // them in the service in order to use them in the liveScores component 
     public awayPlayerImage: string;
-    public homePlayerImage:string;
+    public homePlayerImage: string;
     public awayPlayerFlag: string;
     public homePlayerFlag: string;
-    public awayPlayer2 : string;
+    public awayPlayer2: string;
     public homePlayer2: string;
     public awayPlayer2Image: string;
-    public homePlayer2Image:string;
+    public homePlayer2Image: string;
     public awayPlayer2Flag: string;
     public homePlayer2Flag: string;
-    
-
-
-
 
 }
 

@@ -15,28 +15,14 @@ function Football(): JSX.Element {
 
     const divRef = useRef<any[]>([])
 
-    // const observer = new IntersectionObserver((entries) => {
-    //     entries.forEach((entry) => {
-    //         console.log(entry);
-    //         if (entry.isIntersecting) {
-    //             entry.target.classList.add('Show');
-    //         } else {
-    //             entry.target.classList.remove('Show')
-    //         }
-    //     })
-    // });
-
     const pushRef = (el: any) => divRef.current.push(el!) // using ! if you get an error 'object is possibly null'
     const observer = observerFunction;
-
 
     useEffect(() => {
 
 
         if (divRef.current) {
             divRef.current.forEach(l => observer.observe(l));
-            console.log(divRef.current);
-
         }
 
     }, [])
@@ -50,9 +36,8 @@ function Football(): JSX.Element {
 
                 <div className="Rash">
                     <h1>Football</h1>
-
-                    {/* <img src={rashford} className="rashford Hidden" ref={pushRef} /> */}
                 </div>
+                
                 <img src={football} />
 
             </div>

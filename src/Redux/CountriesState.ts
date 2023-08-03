@@ -7,7 +7,6 @@ export class CountriesState {
 
 export enum CountryActionType {
     FetchCountries = "FetchCountries",
-    FetchCountryFlag = "FetchCountryFlag"
 }
 
 export interface CountryAction {
@@ -18,17 +17,11 @@ export interface CountryAction {
 export function CountryReducer(currentState = new CountriesState(), action: CountryAction): CountriesState {
     const newState = { ...currentState }
 
+    // using switch in case i add future actions
     switch (action.type) {
         case CountryActionType.FetchCountries:
             newState.countries = action.payload;
             break;
-
-        // case CountryActionType.FetchCountryFlag
-        //     newState.vacations.push(action.payload);
-        //     newState.vacations.sort((vacation1, vacation2) => new Date(vacation2.startDate).getTime() - new Date(vacation1.startDate).getTime());
-        //     break;
-
-        
     }
 
     return newState;

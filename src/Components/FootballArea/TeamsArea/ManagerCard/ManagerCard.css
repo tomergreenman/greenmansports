@@ -11,8 +11,6 @@
 
 }
 
-
-
 .ManagerCard img {
     width: 100%;
     border-top-left-radius: 5px;
@@ -26,8 +24,6 @@
 .ManagerCard span {
     margin-bottom: 5px;
 }
-
-
 
 @media screen and (max-width : 600px) {
     .ManagerCard {

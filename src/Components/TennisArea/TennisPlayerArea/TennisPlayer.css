@@ -1,16 +1,9 @@
 .TennisPlayer {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* width: 100%; */
     height: 100%;
-    background-color: aqua;
-    min-height: calc(100vh - 50px);
-
+    min-height: calc(100vh - 100px);
     padding-top: 200px;
     padding-bottom: 20px;
     box-sizing: border-box;
-    /* margin-top: -74Px; */
     background-image: url(../../../Assets//Images/grass-court.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,28 +11,17 @@
 }
 
 .TennisPlayerContainer {
-    /* margin-top: 40px; */
-    /* background-color: rgb(107, 149, 185); */
     display: grid;
     grid-template-columns: 60% 40%;
     width: 70%;
     border-radius: 10px;
     border: 2px solid black;
     margin: auto;
-    /* padding-top: 74.5px; */
     color: whitesmoke;
     font-weight: bold;
     background-image: url(../../../Assets//Images/dark-tennis4.jpeg);
-
     background-repeat: no-repeat;
     background-size: cover;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-
-
-
 }
 
 
@@ -48,18 +30,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url(../../../Assets//Images/photo-1558365849-6ebd8b0454b2.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover; */
     margin: 0;
     padding: 0;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    /* background-color: rgba(13, 128, 228, 0.099); */
-
-
-
-
 }
 
 .TennisPlayer .FlagImage {
@@ -76,22 +50,12 @@
 }
 
 .TennisPlayer .PlayerInfo {
-    /* padding: 10px; */
     display: grid;
     grid-template-columns: 50% 50%;
-    /* border-top-left-radius: 8px; */
     border-bottom-left-radius: 8px;
-    /* background-image: url(../../../Assets//Images/dark-tennis4.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover; */
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     background-color: rgba(13, 128, 228, 0.099);
-
-
-
-
-
 }
 
 .PlayerInfo h1 {
@@ -107,36 +71,24 @@
 
 .PlayerInfo>div {
     border: 1px solid black;
-    /* padding: 10px; */
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center; */
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     gap: 20px;
     padding: 7px;
-    /* padding-left: 20px; */
     align-items: center;
 }
 
 .PlayerInfo :nth-child(1) {
     border-top-left-radius: 8px;
-    /* border-left: none; */
 }
 
 .PlayerInfo :nth-child(8) {
     border-bottom-left-radius: 8px;
-    /* border-left: none; */
 }
 
 .Age span {
-    /* justify-content: space-a; */
-    /* margin-right: 20px; */
     font-size: 1rem;
-
 }
 
 .Age {
@@ -160,63 +112,32 @@
     .TennisPlayerContainer {
         width: 90%;
     }
-}
 
-@media screen and (max-width: 600px) {
     .PlayerImage {
-        /* width: 180px; */
         width: 100%;
-        /* height: 50%; */
     }
-}
 
-
-@media screen and (max-width: 600px) {
     .Age span {
         font-size: 15px;
         text-align: center;
     }
-}
 
-
-@media screen and (max-width: 600px) {
     .TennisPlayer .FlagImage {
         width: 60px;
         height: 60px;
         left: 50%;
         transform: translate(-50%);
     }
-}
 
-@media screen and (max-width: 600px) {
     .Age h2 {
         font-size: 13px;
         text-align: center;
-        
-        
     }
-}
 
-/* @media screen and (max-width: 600px) {
-    .Age {
-        overflow-wrap: break-word;
-    }
-} */
-
-@media screen and (max-width: 600px) {
-    .PlayerInfo .top {
-        /* margin-bottom: auto;
-        display: block; */
-    }
-}
-
-@media screen and (max-width: 600px) {
     .PlayerInfo .middle {
         margin: auto;
     }
-}
 
-@media screen and (max-width: 600px) {
     .TennisPlayer {
         padding-top: 100px;
     }

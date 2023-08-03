@@ -11,21 +11,19 @@ interface LiveStatisticsProps {
     statistics: LiveTennisStatisticsModel;
     liveScore: LiveTennisModel;
     handlePopUP: (statistics: LiveTennisStatisticsModel, liveSore?: LiveTennisModel) => void
-    // closePopUP: () => void
-
-    // handlePopUP: (statistics: LiveTennisStatisticsModel, liveSore: LiveTennisModel, setStatistics: SetStateAction<LiveTennisStatisticsModel>, setLiveScores: SetStateAction<LiveTennisModel>) => void
 
 }
 
 function LiveStatistics(props: LiveStatisticsProps): JSX.Element {
 
-
-
     return (
         <div className="LiveStatistics">
 
             {
-                !props.statistics.Text && <>
+                // If there is statistics.Text it means API returned no statistics 
+                // Only show statistics if found
+
+                props.statistics && !props.statistics.Text && <>
 
 
                     <table className="PupUpTable">
@@ -135,36 +133,18 @@ function LiveStatistics(props: LiveStatisticsProps): JSX.Element {
 
                         </tbody>
                     </table>
-
-
-
-
-
-                    {/* <img src={props.statistics.homePlayerImage ? props.statistics.homePlayerImage : ghostImage} />
-                    <img src={props.statistics.homePlayerFlag ? props.statistics.homePlayerFlag : noImage} />
-                    <img src={props.statistics.awayPlayerImage ? props.statistics.awayPlayerImage : ghostImage} />
-                    <img src={props.statistics.awayPlayerFlag ? props.statistics.awayPlayerFlag : noImage} />
-                    
-                    
-                    
-                    <p>{props.liveScore["Home Player"]}</p>
-                    <p>{props.liveScore["Away Player"]}</p>
-                    <p>{props.statistics["P2 name"]}</p>
-                    <p>{props.statistics["P2 name"]}</p>
-                    <p>{props.statistics["P2 name"]}</p>
-                <p>{props.statistics["P2 name"]}</p> */}
-                    <button className="ClosePopupButton" onClick={() => props.handlePopUP(null)}>X</button>
                 </>
             }
 
             {
-                props.statistics.Text &&
+                //If no statistics were fond 
+                props.statistics && props.statistics.Text &&
                 <div className="NoStats">
                     <h2> Sorry, There Are No Statistics</h2>
-                    <button className="ClosePopupButton" onClick={() => props.handlePopUP(null)}>X</button>
                 </div>
             }
 
+            <button className="ClosePopupButton" onClick={() => props.handlePopUP(null)}>X</button>
 
 
         </div>

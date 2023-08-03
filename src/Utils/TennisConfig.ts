@@ -7,7 +7,7 @@ class TennisConfig {
 
     public headers = {
 
-        'X-RapidAPI-Key': '2264410ea2msh9f4eaf323d09f12p168f68jsn854bd0556c44',
+        'X-RapidAPI-Key': process.env.REACT_APP_X_RAPID_API_KEY,
         'X-RapidAPI-Host': 'ultimate-tennis1.p.rapidapi.com'
 
     }

@@ -6,19 +6,16 @@ import LiveTennisModel from "../Models/LiveTennisModel";
 export class TennisState {
     public tennisRankings: TennisRankingModel[] = [];
     public tennisPlayers: TennisPlayerModel[] = [];
-    public liveScores : LiveTennisModel[] = [];
-
 }
 
 export enum TennisActionType {
     FetchRankings = "FetchRankings",
     AddTennisPlayer = "AddTennisPlayer",
-    FetchLiveScores = "FetchLiveScores"
 }
 
 export interface TennisAction {
     type: TennisActionType;
-    payload: any 
+    payload: any;
 }
 
 export function TennisReducer(currentState = new TennisState(), action: TennisAction): TennisState {
@@ -32,10 +29,7 @@ export function TennisReducer(currentState = new TennisState(), action: TennisAc
          
         case TennisActionType.AddTennisPlayer:
             newState.tennisPlayers.push(action.payload)
-            break;  
-        case TennisActionType.FetchLiveScores:
-            newState.liveScores = action.payload;
-            break     
+            break;     
     }
 
     return newState;

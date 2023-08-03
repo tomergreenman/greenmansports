@@ -1,108 +1,38 @@
-import { DOMElement, Dispatch, ReactElement, ReactNode, Ref, RefObject, SetStateAction, useEffect, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import BarChartIcon from '@mui/icons-material/BarChart';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import { useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Menu.css";
 
-// MUI imports
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import MuiMenu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import DeckIcon from '@mui/icons-material/Deck';
-import MenuItemModel from "../../../Models/MenuItemModel";
-
-
-
-
-import React from "react";
 import franceFlag from ".././../../Assets/Images/france-flag.png"
 import ukFlag from ".././../../Assets/Images/uk-flag.png"
 import spainFlag from ".././../../Assets/Images/spain-flag.png"
 import italyFlag from ".././../../Assets/Images/italy-flag.png"
 import germanyFlag from ".././../../Assets/Images/germany-flag.png"
 import israelFlag from ".././../../Assets/Images/israel-flag.png"
-import { fontSize, margin } from "@mui/system";
-import { LeaguesIdCodes } from "../../../Utils/SeasonsIdCodes";
-
-
-
+import { LeaguesIdCodes } from "../../../Utils/LeguesIdCodes";
 
 function Menu(): JSX.Element {
 
-
-
-    const closedMenuStyle = {
-        visibility: 'hidden',
-        opacity: '0',
-        top: '54px',
-    }
-
-    const openMenuStyle = {
-
-        visibility: 'visible',
-        opacity: '1',
-        top: '34.5px'
-    }
-
     const footballLi = useRef<any>();
     const tennisLi = useRef<any>();
-
     const footballUl = useRef<any>();
     const tennisUl = useRef<any>();
 
-    const ulMap = new Map<string, any>();
-    ulMap.set("football", footballUl);
-    ulMap.set("tennis", tennisUl);
+    //change styles when opening and closing menus  
+    function closeDropdownMenu(ulRef: any, liRef: any) {
 
-
-    function closeDropdownMenu() {
-
-        setDropdownStyle(closedMenuStyle)
-        footballLi.current.style.backgroundColor = '#122331'
-
-
-    }
-
-    function openDropdownMenu() {
-
-        setDropdownStyle(openMenuStyle)
-        footballLi.current.style.backgroundColor = '#ff652f'
-    }
-
-    function closeDropdownMenu2(ulRef: any, liRef: any) {
-        // const ref = ulMap.get(ul)
         ulRef.current.style.visibility = 'hidden';
         ulRef.current.style.opacity = '0';
         ulRef.current.style.top = '54px'
         liRef.current.style.backgroundColor = '#122331'
-        // liRef.current.style.fontSize = '500px'
-
-        console.log("closed");
-        
-
-
-
-
     }
 
-    function openDropdownMenu2(ulRef: any, liRef: any) {
+    function openDropdownMenu(ulRef: any, liRef: any) {
 
-        // const ref = ulMap.get(ul)
         ulRef.current.style.visibility = 'visible';
         ulRef.current.style.opacity = '1';
         ulRef.current.style.top = '34px'
-        liRef.current.style.backgroundColor = '#ff652f'
-        console.log("df");
-        
+        liRef.current.style.backgroundColor = 'rgb(21, 107, 94)'
+
     }
 
     const closedSubMenuStyle = {
@@ -117,36 +47,14 @@ function Menu(): JSX.Element {
         visibility: 'visible',
         opacity: '1',
         top: '0px',
-        // left: '116.5px',
-
     }
 
-
-    // function setSubMenuToOpenFunction (country:string) {
-    //     setSubMenuToOpen(country)
-
-    // }
-
-    const [dropdownStyle, setDropdownStyle] = useState<{}>(closedMenuStyle)
-    const [TennisDropdownStyle, setTennisDropdownStyle] = useState<{}>(openMenuStyle)
-    const [subDropdownStyle, setSubDropdownStyle] = useState<{}>(closedSubMenuStyle)
-    // const [subMenuToOpen, setSubMenuToOpen] = useState<string>("")
     const [englandDropdownStyle, setEnglandDropdownStyle] = useState<{}>(closedSubMenuStyle)
     const [spainDropdownStyle, setSpainDropdownStyle] = useState<{}>(closedSubMenuStyle)
     const [italyDropdownStyle, setItalyDropdownStyle] = useState<{}>(closedSubMenuStyle)
     const [franceDropdownStyle, setFranceDropdownStyle] = useState<{}>(closedSubMenuStyle)
     const [germanyDropdownStyle, setGermanyDropdownStyle] = useState<{}>(closedSubMenuStyle)
     const [israelDropdownStyle, setIsraelDropdownStyle] = useState<{}>(closedSubMenuStyle)
-
-
-    // const countrySetStyleMapObject = {
-    //     "England" : setEnglandDropdownStyle,
-    //     "Spain" : setSpainDropdownStyle,
-    //     "Italy" : setItalyDropdownStyle,
-    //     "France" : setFranceDropdownStyle,
-    //     "Germany" : setGermanyDropdownStyle
-    // }
-    // const countrySetStyleMap2 = new Map<string, any>(Object.entries(countrySetStyleMapObject));
 
 
     const countrySetStyleMap = new Map<string, any>();
@@ -159,79 +67,17 @@ function Menu(): JSX.Element {
 
 
 
-
-
     function closeSubDropdownMenu(country: string) {
-
-        // switch (country) {
-        //     case "England":
-        //         setEnglandDropdownStyle(closedSubMenuStyle);
-        //         break;
-        //     case "Spain":
-        //         setSpainDropdownStyle(closedSubMenuStyle);
-        //         break;
-        //     case "Italy":
-        //         setItalyDropdownStyle(closedSubMenuStyle);
-        //         break;
-        //     case "France":
-        //         setFranceDropdownStyle(closedSubMenuStyle);
-        //         break;
-        //     case "Germany":
-        //         setGermanyDropdownStyle(closedSubMenuStyle);
-        //         break;
-
-        // }
 
         const countryToChangeStyle = countrySetStyleMap.get(country);
         countryToChangeStyle(closedSubMenuStyle)
-
-        // const x = countrySetStyleMap2.get(country)
-        // x(closedSubMenuStyle)
-
-
-
     }
-
 
     function openSubDropdownMenu(country: string) {
 
-        // switch (country) {
-        //     case "England":
-        //         setEnglandDropdownStyle(openSubMenuStyle);
-        //         break;
-        //     case "Spain":
-        //         setSpainDropdownStyle(openSubMenuStyle);
-        //         break;
-        //     case "Italy":
-        //         setItalyDropdownStyle(openSubMenuStyle);
-        //         break;
-        //     case "France":
-        //         setFranceDropdownStyle(openSubMenuStyle);
-        //         break;
-        //     case "Germany":
-        //         setGermanyDropdownStyle(openSubMenuStyle);
-        //         break;
-        // }
-
-        // setSubMenuToOpen(country)
-        // setSubDropdownStyle(openSubMenuStyle)
-        // sportsLi.current.style.backgroundColor = '#ff652f'
-
         const countryToChangeStyle = countrySetStyleMap.get(country);
         countryToChangeStyle(openSubMenuStyle)
-
-        // const x = countrySetStyleMap2.get(country)
-        // x(openSubMenuStyle)
-
     }
-
-
-
-
-
-
-
-
 
     return (
 
@@ -239,13 +85,13 @@ function Menu(): JSX.Element {
 
             <ul className="menu-items">
                 <li className="MainLi">
-                    <NavLink to="/home" className="menu-item">Home</NavLink>
+                    <NavLink to="/greenmansports" className="menu-item">Home</NavLink>
                 </li>
 
                 {/* Football */}
                 <li className="FootballLi" ref={footballLi}
-                    onMouseEnter={() => openDropdownMenu2(footballUl, footballLi)}
-                    onMouseLeave={() => closeDropdownMenu2(footballUl, footballLi)}
+                    onMouseEnter={() => openDropdownMenu(footballUl, footballLi)}
+                    onMouseLeave={() => closeDropdownMenu(footballUl, footballLi)}
                 >
                     <a href="#" className="menu-item"
                     // onClick={openDropdownMenu}
@@ -263,26 +109,26 @@ function Menu(): JSX.Element {
 
                             <ul className="SubDropDownMenu" style={englandDropdownStyle} >
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.EnglishPremierLeague}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.EnglishPremierLeague}
                                         onClick={() => {
                                             // closeDropdownMenu()
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("England")
                                         }}>
                                         Premier League</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.EnglandChampionShip}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.EnglandChampionShip}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("England")
                                         }}>
                                         Championship</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.WomensSuperLeague}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.WomensSuperLeague}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("England")
                                         }}>
                                         Women's Super League</NavLink>
@@ -300,19 +146,19 @@ function Menu(): JSX.Element {
 
                             <ul className="SubDropDownMenu" style={spainDropdownStyle}>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.LaLiga}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.LaLiga}
                                         onClick={() => {
                                             // closeDropdownMenu()
 
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Spain")
                                         }}
                                     > LaLiga</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.PrimeraDivisionFemenina}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.PrimeraDivisionFemenina}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Spain")
                                         }}
                                     >Primera Division Femenina</NavLink>
@@ -328,20 +174,20 @@ function Menu(): JSX.Element {
 
                             <ul className="SubDropDownMenu" style={italyDropdownStyle}>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.SerieA}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.SerieA}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Italy")
                                         }}
                                     > Serie A</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/home"}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.SerieAFemminile}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Italy")
                                         }}
-                                    >Italy2</NavLink>
+                                    >Seria A Femminile</NavLink>
                                 </li>
                             </ul>
                         </li>
@@ -354,20 +200,20 @@ function Menu(): JSX.Element {
 
                             <ul className="SubDropDownMenu" style={franceDropdownStyle}>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.LeagueOne}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.LeagueOne}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("France")
                                         }}
                                     > League One</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/home"}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.Division1Féminine}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("France")
                                         }}
-                                    >France2</NavLink>
+                                    >Division 1 Féminine</NavLink>
                                 </li>
                             </ul>
                         </li>
@@ -380,20 +226,20 @@ function Menu(): JSX.Element {
 
                             <ul className="SubDropDownMenu" style={germanyDropdownStyle}>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.Bundesliga}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.Bundesliga}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Germany")
                                         }}
                                     > Bundesliga</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/home"}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.BundesligaWomen}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Germany")
                                         }}
-                                    >Germany2</NavLink>
+                                    >Bundesliga Women</NavLink>
                                 </li>
                             </ul>
                         </li>
@@ -406,20 +252,20 @@ function Menu(): JSX.Element {
 
                             <ul className="SubDropDownMenu" style={israelDropdownStyle}>
                                 <li>
-                                    <NavLink to={"/leagues/" + LeaguesIdCodes.IsraelPremierLeague}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.IsraelPremierLeague}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Israel")
                                         }}
                                     > Israel Premier League</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to={"/home"}
+                                    <NavLink to={"greenmansports/leagues/" + LeaguesIdCodes.IsraelPremierLeagueWomen}
                                         onClick={() => {
-                                            closeDropdownMenu2(footballUl, footballLi)
+                                            closeDropdownMenu(footballUl, footballLi)
                                             closeSubDropdownMenu("Israel")
                                         }}
-                                    >Israel2</NavLink>
+                                    >Israel Premier League Women</NavLink>
                                 </li>
                             </ul>
                         </li>
@@ -432,30 +278,30 @@ function Menu(): JSX.Element {
 
                 {/* Tennis */}
                 <li className="MainLi TennisLi" ref={tennisLi}
-                    onMouseEnter={() => openDropdownMenu2(tennisUl, tennisLi)}
-                    onMouseLeave={() => closeDropdownMenu2(tennisUl, tennisLi)}>
-                    <NavLink to={"#"} >Tennis</NavLink>
+                    onMouseLeave={() => closeDropdownMenu(tennisUl, tennisLi)}
+                >
+                    <NavLink to={"#"}
+                        onMouseEnter={() => openDropdownMenu(tennisUl, tennisLi)}>Tennis</NavLink>
                     <ul className="TennisDropDown" ref={tennisUl}>
                         <li>
-                            <NavLink className="menu-item" to={"/tennis-rankings"}
-                                onClick={() =>closeDropdownMenu2(tennisUl, tennisLi)}>Player Rankings</NavLink>
+                            <NavLink className="menu-item" to={"greenmansports/tennis-rankings"}
+                                onClick={() => closeDropdownMenu(tennisUl, tennisLi)}>Player Rankings</NavLink>
                         </li>
                         <li>
-                            <NavLink className="menu-item" to={"/tennis-liveScores"}
-                                onClick={() => closeDropdownMenu2(tennisUl, tennisLi)}>Live Scores</NavLink>
+                            <NavLink className="menu-item" to={"greenmansports/tennis-liveScores"}
+                                onClick={() => closeDropdownMenu(tennisUl, tennisLi)}>Live Scores</NavLink>
                         </li>
                     </ul>
                 </li>
 
                 <li className="MainLi">
-                    <NavLink to={""} >Golf</NavLink>
+                    <NavLink to={"greenmansports/golf"} >Golf</NavLink>
                 </li>
 
 
             </ul>
 
         </nav>
-
 
 
     );

@@ -1,16 +1,10 @@
 .AtpRankings {
-    /* margin-top: -100px; */
-    /* padding: 100px; */
     background-image: url(../../../Assets//Images/clay-court.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     min-height: calc(100vh - 50px);
     width: 100%;
-
-
-    /* margin-top: -50px; */
-    /* min-height: 100vh; */
     padding: 20px;
     box-sizing: border-box;
 }
@@ -22,12 +16,6 @@
     font-weight: bold;
     border-radius: 5px;
     padding: 1px;
-}
-
-
-
-.AtpRankings td {
-    /* padding: 2px; */
 }
 
 .AtpTable tr:nth-child(odd) {
@@ -49,15 +37,8 @@
     margin: auto;
     border-collapse: collapse;
     text-align: center;
-    /* width: 800px; */
-    /* width: 100%; */
-    /* min-width: 40%; */
     max-width: 80%;
-    /* max-width: 20%; */
     border: 2px solid;
-    /* width: 50px; */
-    /* margin-top: 74.50px; */
-    /* overflow-wrap: break-word; */
     font-size: larger;
     margin-top: 74.5px;
 }
@@ -68,15 +49,10 @@
     padding: 5px;
     box-sizing: border-box;
     border: 1px solid;
-    /* overflow-wrap: break-word; */
-    /* word-wrap: break-word; */
-
-
 }
 
 .AtpTable th {
     background-color: aliceblue;
-    /* width: 20%; */
 }
 
 .AtpTable tr:hover {
@@ -94,39 +70,11 @@
 
 .AtpTable .RankingsController {
     margin-right: 20px;
-    /* background-color: rgb(0, 0, 0); */
     background-color: transparent;
     border-radius: 30px;
     padding: 5px;
     color: black;
 }
-
-.AtpRankings .Spinner{
-     /* width: 200px; */
-}
-
-.AtpTable td {
-    /* width: 20%; */
-    /* width: 2%; */
-    /* font-size:medium; */
-    /* overflow-wrap: break-word; */
-    /* overflow: auto; */
-
-}
-
-.AtpTable tr {
-    /* width: 100%; */
-    /* border: 1px solid; */
-
-
-}
-
-/* .AtpTable tr>td:nth-child(2){
-   background-color: aqua;
-
-} */
-
-
 
 @media screen and (max-width: 600px) {
     .AtpTable {

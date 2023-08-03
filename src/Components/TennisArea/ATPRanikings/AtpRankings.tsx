@@ -13,13 +13,17 @@ function AtpRankings(): JSX.Element {
 
     useEffect(() => {
         const getRankings = async () => {
-            const rankings = await tennisService.getPlayersRanking();
-            setRankings(rankings);
-            const subRankings = rankings.slice(0, 100)
-            setDisplayedRankings(subRankings)
-            // const scores = await tennisService.getLiveScores();
-            // console.log(scores);
+            try {
+                const rankings = await tennisService.getPlayersRanking();
+                setRankings(rankings);
+                const subRankings = rankings.slice(0, 100)
+                setDisplayedRankings(subRankings)
+            }
 
+            catch (err: any) {
+                console.log(err.message);
+
+            }
         }
 
         getRankings();
@@ -28,8 +32,6 @@ function AtpRankings(): JSX.Element {
 
     function display50MoreRankings() {
         const lastRankingIndex = displayedRankings.length;
-        console.log(lastRankingIndex);
-
         const subRankings = rankings.slice(0, lastRankingIndex + 100)
         setDisplayedRankings(subRankings)
 
@@ -37,30 +39,22 @@ function AtpRankings(): JSX.Element {
 
     function display50LessRankings() {
         const lastRankingIndex = displayedRankings.length;
-        console.log(lastRankingIndex);
-
         const subRankings = rankings.slice(0, lastRankingIndex - 100)
         setDisplayedRankings(subRankings)
 
     }
 
-
-
     return (
         <div className="AtpRankings">
-            {/* <div className="BufferDiv"></div> */}
-
 
             {
-                rankings.length < 1 &&
+                rankings?.length < 1 &&
                 <>
                     <img className="Spinner" src={spinner} />
                 </>
             }
 
-            {rankings.length > 1 &&
-
-
+            {rankings?.length > 1 &&
 
                 <table className="AtpTable">
                     <thead>
@@ -78,16 +72,16 @@ function AtpRankings(): JSX.Element {
                         {displayedRankings.map(rank =>
                             <tr key={rank.id}>
                                 <td>#{rank.Rank}</td>
-                                <td className="PlayerName" onClick={() => { navigate("/tennis-players/" + rank.id) }}>{rank.Name}</td>
+                                <td className="PlayerName" onClick={() => { navigate("/greenmansports/tennis-players/" + rank.id) }}>{rank.Name}</td>
                                 <td>{rank.Age}</td>
                                 <td>{rank["Rank Diff"]}</td>
-                                <td><button onClick={() => { navigate("/tennis-players/" + rank.id) }}>More Info</button></td>
+                                <td><button onClick={() => { navigate("/greenmansports/tennis-players/" + rank.id) }}>More Info</button></td>
                             </tr>
                         )}
                         <tr>
                             <td colSpan={6}><button className="RankingsController" disabled={displayedRankings.length >= 1000} onClick={display50MoreRankings}>Show More</button>
-                            <button className="RankingsController" disabled={displayedRankings.length <= 100}  onClick={display50LessRankings}>Show Less</button></td>
-                            
+                                <button className="RankingsController" disabled={displayedRankings.length <= 100} onClick={display50LessRankings}>Show Less</button></td>
+
                         </tr>
 
                     </tbody>

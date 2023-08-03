@@ -8,9 +8,6 @@
     padding-top: 100px;
     box-sizing: border-box;
     padding-bottom: 20px;
-
-
-
 }
 
 .TennisLiveScoreTable {
@@ -18,30 +15,18 @@
     height: 200px;
     box-sizing: border-box;
     margin: 0;
-
-    /* font-size: 20px; */
 }
 
 .TennisLiveScoreTable:hover {
     background-color: rgba(241, 255, 189, 0.305);
+    cursor: pointer;
 
 }
-
-/* .LiveScores img {
-    width: 40px;
-} */
-
 
 .TennisLiveScoreTable th {
     height: 50px;
-    /* margin: auto; */
-
 
 }
-
-/* .LiveScores td, t {
-    border: 1px;
-} */
 
 .TennisLiveScoreTable td,
 .TennisLiveScoreTable tr, 
@@ -53,37 +38,13 @@
 }
 
 .TennisLiveScoreTable td:nth-child(1) {
-    /* border-right: none; */
-    /* background-color: aquamarine; */
-    /* display: grid; */
-    /* grid-template-columns: 50px max-content; */
-    /* height: 100%; */
-    /* gap: 10px; */
     border: none;
     text-align: left;
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center; */
     background-color: aliceblue;
     padding-left: 10px;
-    /* box-sizing: border-box; */
-    /* width: 100%; */
-    /* width: max-content; */
 }
-
-/* .TennisLiveScoreTable td:nth-child(2) div {
-    display: flex;
-    align-items: center;
-    background-color: aliceblue;
-}
-
-.TennisLiveScoreTable td:nth-child(2) div:nth-child(2) {
-    display: flex;
-    align-items: center;
-} */
 
 .TennisLiveScoreTable .Doubles {
-    background-color: aliceblue;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -92,30 +53,7 @@
     box-sizing: border-box;
     width: 100%;
 
-
 }
-
-.TennisLiveScoreTable .Singles {
-    display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    gap: 5px;
-    height: 100%;
-    box-sizing: border-box;
-
-}
-
-.x {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.y {
-    /* width: 50px; */
-}
-
-
 
 .TennisLiveScoreTable td:nth-child(2) {
     background-color: rgb(222, 222, 222);
@@ -126,8 +64,38 @@
     min-height: 70px;
 }
 
-/* .TennisLiveScoreTable  */
 
+.PopUp {
+    height: 400px;
+    background-color: aliceblue;
+    border: 5px solid black;
+    z-index: 10;
+    position:fixed;
+    top:50%;
+    left:50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+
+.Overlay {
+    height: 100vh;
+    background-color: rgba(119, 136, 153, 0.585);
+    z-index: 1;
+    width: 100%;
+    position:fixed;
+    top:50%;
+    left:50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+
+.NoScroll {
+    height: 100vh;    
+}
 
 @media screen and (max-width: 600px) {
     .LiveScores{
@@ -165,82 +133,6 @@
     .LiveScores th{
         height: auto;
     }
-
-    .LiveScores tr {
-        /* height: 20px; */
-    }
-/* 
-    .y {
-        width: 10px;
-    }
-     */
     
 }
-
-
-
-.PopUp {
-
-    height: 400px;
-    /* width: 300px; */
-    background-color: aliceblue;
-    border: 5px solid black;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    z-index: 10;
-    position:fixed;
-    top:50%;
-    left:50%;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-
-}
-
-.Overlay {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
-    height: 100vh;
-    background-color: rgba(119, 136, 153, 0.585);
-    z-index: 1;
-    width: 100%;
-
-    position:fixed;
-    top:50%;
-    left:50%;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-
-    /* display: block; */
-}
-
-.NoScroll {
-
-    
-    height: 100vh;
-    /* overflow-y: hidden; */
-    /* background-color: rgb(119, 136, 153); */
-    /* z-index: 10; */
-
-
-    
-}
-
-/* .ClosePopupButton{
-    background-color: rgba(0, 0, 0, 0.723);
-    border-radius: 45px;
-    color: white;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: -45px;
-    right: -10px;
-} */
-
-
-
 
