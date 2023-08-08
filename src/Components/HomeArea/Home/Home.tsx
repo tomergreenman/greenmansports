@@ -7,10 +7,6 @@ import Golf from "../Golf/Golf";
 
 function Home(): JSX.Element {
 
-    console.log(process.env);
-    
-
-
     return (
         <div className="Home">
 
