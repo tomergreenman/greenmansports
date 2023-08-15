@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/greenmansports/static/css/main.cdef2acd.css",
+    "main.css": "/greenmansports/static/css/main.d2822b8d.css",
     "main.js": "/greenmansports/static/js/main.3329097a.js",
     "static/js/787.9452f946.chunk.js": "/greenmansports/static/js/787.9452f946.chunk.js",
     "static/media/sports-cover4.jpg": "/greenmansports/static/media/sports-cover4.3067418056ebe5286341.jpg",
@@ -27,12 +27,12 @@
     "static/media/info.png": "/greenmansports/static/media/info.ba310ec6afad7778f292.png",
     "static/media/No_Image_Available.jpeg": "/greenmansports/static/media/No_Image_Available.e1ce751ef1b590f719f9.jpeg",
     "index.html": "/greenmansports/index.html",
-    "main.cdef2acd.css.map": "/greenmansports/static/css/main.cdef2acd.css.map",
+    "main.d2822b8d.css.map": "/greenmansports/static/css/main.d2822b8d.css.map",
     "main.3329097a.js.map": "/greenmansports/static/js/main.3329097a.js.map",
     "787.9452f946.chunk.js.map": "/greenmansports/static/js/787.9452f946.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cdef2acd.css",
+    "static/css/main.d2822b8d.css",
     "static/js/main.3329097a.js"
   ]
 }
