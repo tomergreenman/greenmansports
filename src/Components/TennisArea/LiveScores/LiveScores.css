@@ -29,7 +29,7 @@
 }
 
 .TennisLiveScoreTable td,
-.TennisLiveScoreTable tr, 
+.TennisLiveScoreTable tr,
 .TennisLiveScoreTable th {
     border: 1px solid;
     padding: 3px;
@@ -70,12 +70,12 @@
     background-color: aliceblue;
     border: 5px solid black;
     z-index: 10;
-    position:fixed;
-    top:50%;
-    left:50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
 }
 
@@ -84,29 +84,28 @@
     background-color: rgba(119, 136, 153, 0.585);
     z-index: 1;
     width: 100%;
-    position:fixed;
-    top:50%;
-    left:50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
 }
 
 .NoScroll {
-    height: 100vh;    
+    height: 100vh;
 }
 
 @media screen and (max-width: 600px) {
-    .LiveScores{
+    .LiveScores {
         /* flex-direction: column; */
         justify-content: center;
         align-items: flex-start;
         gap: 20px;
     }
 
-
-    .TennisLiveScoreTable{
+    .TennisLiveScoreTable {
         width: 80%;
         height: 150px;
         font-size: 80%;
@@ -116,23 +115,14 @@
 
     }
 
-    .LiveScores img {
-        width: 10px;
-    }
-
-    .LiveScores .Spinner {
-        width: 150px;
-    }
-
     .TennisLiveScoreTable td {
         width: max-content;
         min-width: 30px;
         /* min-height: 70px; */
     }
 
-    .LiveScores th{
+    .LiveScores th {
         height: auto;
     }
-    
-}
 
+}
